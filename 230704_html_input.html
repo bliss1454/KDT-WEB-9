@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>input 태그</title>
+</head>
+<body>
+    <div>사용자에게 값을 입력받을 때 사용</div>
+    <h2>text type</h2>
+    <input type="text" name="name" placeholder="이름을 입력해주세요."/>
+    <!-- name : back에 정보를 전송할 때, name 속성을 사용하게 되는 순간이 온다 -->
+    <!-- placeholder : input에 사용자가 무슨 값을 입력해야하는지 안내하고 싶을 대 주로 사용 -->
+    
+    <input type="text" name="phone" value="010-0000-0000" />
+
+    <h2>button type</h2>
+    <input type="buttton" value="제출" />
+    <button type="button">제출</button>
+
+    <h2>password type</h2>
+    <input type="password" name="pw"/>
+
+    <h2>checkbox type</h2>
+    <input type="checkbox" name="hobby" value="야구" /> 야구
+    <input type="checkbox" name="hobby" value="축구" checked /> 축구
+
+    <h2>radio type</h2>
+    <input type="radio" name="gender" value="남자" checked/> 남자
+    <input type="radio" name="gender" value="여자" /> 여자
+
+    <h2>radio2 type</h2>    
+    <input type="radio" name="favorite" value="야구" /> 야구
+    <input type="radio" name="favorite" value="축구" id="축구" /> 
+    <label for="축구">축구</label>
+    
+    <input type="radio" name="favorite" value="줄넘기" id="줄넘기" /> 
+    <label for="줄넘기">줄넘기</label>
+
+    <h2>date type</h2>
+    <input type="date" name="birth" />
+    <input type="datetime-local" name="birth-time" />
+
+    <h2>select tag</h2>
+    <select name="select-name">
+        <optgroup label="옵션1~2">
+            <option value="option1">옵션1</option>
+            <option value="option2">옵션2</option>
+        </optgroup>
+        <optgroup label="옵션3~4">
+            <option value="option3"selected>옵션3</option>
+            <option value="option4"disabled>옵션4</option>    
+        </optgroup>
+    </select>
+
+<div>
+    <input type="text" name="email" value="ssss@spreatis.com" readonly>
+</div>
+
+<textarea name="contents" rows="10" cols="100">
+
+</textarea>
+
+</body>
+</html>
