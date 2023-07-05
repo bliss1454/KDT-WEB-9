@@ -5,28 +5,37 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>선택자 공부</title>
     <style>
-        /* *{
+        div > p {
+            color: navy;
+        }
+        div > ul > .orange{
+            color: orange;
+        }
+
+        div .orange {
+            background-color: red;
+        }
+
+        ul + div {
             color: red;
-        } */
-        li{
-            color: blue;
         }
 
-        .strawberry{
-            background-color: gray;
-        }
-
-        #ex {
-            background-color: aqua;
+        .apple ~ li {
+            font-weight: 900;
+            font-size: 30px;
         }
     </style>
 </head>
 <body>
-    <div id="ex" class="">안녕?</div>
-    <span>lily 리더</span>
+    <div>
     <ul>
-        <li>사과</li>
-        <li class="strawberry">딸기</li>
+        <li class="apple">사과</li>
+        <li>딸기</li>
+        <li class="orange">오렌지</li>
     </ul>
+    <div>당근</div>
+    <p>토마토</p>
+    <span class="orange">오렌지</span>
+    </div>
 </body>
 </html>

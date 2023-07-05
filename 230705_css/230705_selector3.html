@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 속성값을 변수화 */
+        /* 변수 : 특정값을 저장하는 공간 */
+        :root {
+            --main-color : blue;
+            --main-bg-color : white;
+            --sub-color : rgb(201, 165, 98);
+            --main-font-size : 30px;
+        }
+        div {
+            color: var(--main-color);
+            font-weight: 900;
+            font-size: var(--main-font-size);
+        }
+
+        p{
+            background-color: var(--main-color);
+        }
+    </style>
+</head>
+<body>
+    <div>안녕?</div>
+    <p>안녕안녕</p>
+</body>
+</html>
