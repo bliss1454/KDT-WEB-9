@@ -11,26 +11,25 @@
             background-color: aqua;
         }
 
-        .border-1 {    
-            border-color: black red blue yellow;
-            border-style: solid dashed;
-            border-width: 10px 5px;
-            border-radius: 50% 10px 10px;
+        .content-box {    
+            box-sizing: content-box;
+            padding: 20px;
+            border: 10px solid black;
+            margin: 20px;
+            display: none;
         }
 
-        .border-2 {
-            border-top: 5px solid black ;
-            border-left: 5px dashed red ;
-            
-            border-top-color: black;
-            border-top-style: solid;
-            border-top-width: 10px;
+        .border-box {
+            box-sizing: border-box;
+            padding: 20px;
+            border: 10px solid black;
+            opacity: 1;
         }
     </style>
 </head>
 <body>
-    <div class="box border-1"></div>
+    <div class="box content-box">ABC</div>
     <br /><br />
-    <div class="box border-2"></div>
+    <div class="box border-box">ABC</div>
 </body>
 </html>

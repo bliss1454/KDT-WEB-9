@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* .box-1 {
+            background-color: blue;
+            width: 300px;
+            height: 300px;
+            padding: 20px;
+            overflow: auto;
+        }
+        .box-2 {
+            background-color: orange;
+            width: 100px;
+            height: 100px;
+        } */
+
+        .flex-box{
+            height: 500px;
+            background-color: aqua;
+            display: flex;
+            /* display flex: 자식 요소를 inline-block으로 만든다 */
+            flex-direction: column;
+            height: 500px;
+            justify-content: row; 
+            /*flex-direction이 row일 때, 가로로 가운데 정렬*/
+            align-items: center; 
+            /*세로로 가운데 정렬*/
+            /*justify align : flex일때 사용*/
+        }
+
+        .child-box {
+            width: 100px;
+            height: 100px;
+            background-color: blue;
+            margin: 10px;
+        }
+
+    </style>
+</head>
+<body>
+    <!-- <div class="box-1">
+        <div class="box-2"></div>
+    </div> -->
+    
+    <div class="flex-box">
+        <div class="child-box">
+
+        </div>
+        <div class="child-box">
+        
+        </div>
+        <div class="child-box">    
+        
+        </div>
+    </div>
+</body>
+</html>
