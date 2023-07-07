@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>230707_실습3</title>
+    <style>
+        body {
+            margin: 0;
+        }
+        
+        .container {
+            position: relative;
+        }
+
+        .container > div {
+            position: relative;
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+        }
+        .container > div:nth-child(n+2) {
+            position: absolute;
+        }
+
+        .img {
+            position: absolute;
+            width: 200px;
+            z-index: 5;
+        }
+
+        .one {
+            position: relative;
+            background-color: rgb(115, 64, 162);
+        }
+        .two {
+            background-color: rgb(71, 13, 125);
+            left: 30px;
+            top: 70px;
+        }
+        .three {
+            background-color: rgb(198, 156, 237);
+            left: 60px;
+            top: 90px;
+        }
+
+        .four {
+            background-color: rgb(102, 78, 125);
+            left: 80px;
+            top: 110px;
+        }
+        .five{
+            background-color: rgb(125, 0, 241);
+            left: 100px;
+            top: 130px;
+            z-index: 6
+        }
+        .white-eye{
+            width: 30px;
+            height: 30px;
+            background-color: white;
+            border-radius: 50%;
+            position : relative;
+            top: 15px;
+            left: 15px;
+        }
+        .black-eye {
+            idth: 30px;
+            height: 30px;
+            background-color: white;
+            border-radius: 50%;
+            position: absolute;
+            top: 15px;
+            left: 15px;
+        }
+</style>
+</head>
+<body>
+    <div class="container">
+        <div class="one">
+            <div class="white-eye">
+                <div class="black-eye"></div>
+            </div>
+        </div>
+        <div class="two"></div>
+        <div class="three"></div>
+        <div class="four"></div>
+        <div class="five"></div>
+        <img src="./pngwing.com.png" />
+    </div>
+</body>
+</html>

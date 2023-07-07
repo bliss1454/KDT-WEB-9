@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>230707_실습1</title>
+    <style>
+        img {
+            position: absolute;
+            width: 500px;
+            height: 300px;
+            transform: skewy(45deg);
+            backface-visibility: hidden;
+            margin:250px;
+        }
+        img#one {
+            z-index: 3;
+        }
+        img#two {
+            left: 150px;
+            z-index: 2;
+        }
+        img#three {
+            left: 300px;
+            z-index: 1;
+        }
+    </style>
+</head>
+<body>
+    <div>
+    <img id="one" src="https://i.namu.wiki/i/fzfQqB5NHUGFZCF23a6f-m82e9oRfXVWf7kjJblYmayeHoyTZaAwLhc1CLwTzoCVpGZ9sExeXULQns7WE8L11w.webp" />
+    <img id="two" src="https://images.justwatch.com/poster/300542581/s592/weonpiseu"/>
+    <img id="three" src="https://cdn.mhns.co.kr/news/photo/201905/209915_311713_5353.png" />
+    </div>
+</body>
+</html>

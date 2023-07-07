@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>230707_실습1</title>
+    <style>
+    body{
+        margin: 0;
+    }
+    
+    div {
+        width: 100px;
+        height:  100px;
+    }
+
+    .container {
+        position: relative;
+        width: 500px;
+        height: 500px;
+        background-color: antiquewhite;
+    }
+
+    .item1 {
+        position: relative;
+        left: 50px;
+        top: 30px;
+        background-color: red;
+        }
+
+    .item2 {
+        position: absolute;
+        background-color: blue;
+        right: 30px;
+        bottom: 100px;
+    }
+
+    .item3 {
+        position: fixed;
+        background-color: yellow;
+        right: 100px;
+        top: 100px;
+    }
+</style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="item1"></div>
+        <div class="item2"></div>
+        <div class="item3"></div>
+    </div>
+</body>
+</html>
