@@ -6,59 +6,58 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <script>
+        let num = 1;
+        num = 5;
+        let numString = "5" ;
+        console.log(num <= 1)
+        // == , != , < , > , <= , >=
+        // ===, !== 
+
+        console.log(num == numString)
+        console.log(num === numString)
+
+        console.log(num != numString)
+        console.log(num !== numString)
+
+        console.log(num >= 1)
+        console.log(num <= 1)
+
+        console.log(num + 5)
+        console.log(num - 5)
+        console.log(num * 5)
+        console.log(num / 5)
+
+        console.log((num % 5)==0) 
+        //num 나누기 2를 했을 때 나머지를 출력
+
+        console.log(num ** 3)
+        //num(5)의 3승
+
+        //num = num + 5 ;
+        num += 5;
+
+        //num = num * 5;
+        num *=5;
+        console.log(num)
+
+        //num = num+1;
+        //num += 1, 
+        num ++;
+        console.log(num)
+
+        //논리 연산자
+        console.log(true&&false)
+        console.log(num==50 && num >= 50)
+        //&& => and 연산 : 앞과 뒤가 모두 참일 때, true를 변환, 둘 중 하나라도 거짓일 경우엔 false를 반환
         
-        let me = {
-            age: 25, 
-            name : "박가현" ,
-            mbti : "ENFP"
-        }
+        console.log(true || false)
+        console.log(num>=50 && num <= 20)
+        // ||=>or 연산 : 앞과 뒤 중 하나라도 참일 경우, true 반환,
+        // 둘 다 거짓일 경우에만 false
 
-        console.log(me.name)
-        console.log(me.age)
-        console.log(me.mbti)
-
-        let animals = ["dog", "cat", "lion"];
-        
-        let cat = {
-            age: 5,
-            name: "냥이",
-            mew: function() {
-                console.log("야옹");
-            }
-        }
-
-        let dog = {
-            name: "초코",
-        }
-
-
-        console.log(cat)
-        console.log(cat.age)
-        cat.mew()
-
-        console.log(dog.name)
-        console.log(dog.age)
-
-        console.log(typeof cat.age)
-        console.log(typeof cat.name)
-        console.log(typeof cat.mew) // 함수 => function 자료형
-        console.log(typeof dog.age) //untifined=> undefined 자료형
-        console.log(typeof null) // null=> object 자료형
-
-        console.log(string(null))
-        
-        let num = 5;
-        console.log(null.toString(), 5)
-        
-
-        //let score1 = prompt("첫번째 성적을 입력하세요.")
-        //let score2= prompt("두번째 성적을 입력하세요.")
-        //console.log(score1,score2)
-        
-        //Number(값)
-        //let avg = (Number(score1)+Number(score2))/2;
-        //console.log(avg)
-
+        console.log(!true)
+        console.log(!(num > 50))
+        // true는 false로, false는 true로 반전이 된다.
         
     </script>
 </head>
