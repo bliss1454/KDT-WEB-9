@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>230710_실습4</title>
+    <style>
+          body {
+            margin: 0;
+        }
+        div {
+            border-radius: 100%;
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            background-color: rgb(241, 173, 236);
+            animation: movetoright 3s linear 6 ;
+        }
+        @keyframes movetoright {
+            0% {
+                left: 0px; 
+                top: 0px;
+            }
+            25%{
+                left:100px; 
+                top: 0px; 
+            }
+            50%{
+                top: 100px;  
+                left: 100px;
+            }
+            75%{
+                left: 0px; 
+                top: 100px;
+            }
+            100% {
+                left: 0px; 
+                top: 0px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div></div>
+</body>
+</html>
