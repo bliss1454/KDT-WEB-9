@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        
+        let me = {
+            age: 25, 
+            name : "박가현" ,
+            mbti : "ENFP"
+        }
+
+        console.log(me.name)
+        console.log(me.age)
+        console.log(me.mbti)
+
+        let animals = ["dog", "cat", "lion"];
+        
+        let cat = {
+            age: 5,
+            name: "냥이",
+            mew: function() {
+                console.log("야옹");
+            }
+        }
+
+        let dog = {
+            name: "초코",
+        }
+
+
+        console.log(cat)
+        console.log(cat.age)
+        cat.mew()
+
+        console.log(dog.name)
+        console.log(dog.age)
+
+        console.log(typeof cat.age)
+        console.log(typeof cat.name)
+        console.log(typeof cat.mew) // 함수 => function 자료형
+        console.log(typeof dog.age) //untifined=> undefined 자료형
+        console.log(typeof null) // null=> object 자료형
+
+        console.log(string(null))
+        
+        let num = 5;
+        console.log(null.toString(), 5)
+        
+
+        //let score1 = prompt("첫번째 성적을 입력하세요.")
+        //let score2= prompt("두번째 성적을 입력하세요.")
+        //console.log(score1,score2)
+        
+        //Number(값)
+        //let avg = (Number(score1)+Number(score2))/2;
+        //console.log(avg)
+
+        
+    </script>
+</head>
+
+<body>
+
+</body>
+</html>
