@@ -9,7 +9,7 @@
     <script>
         sayHello()
         // 함수 선언
-        function sayHello() {  //함수 선언문
+        function sayHello() {  //함수 선언문 : 어디서든 호출가능
             console.log("hello");
         } 
         // 함수를 만든다고 해서 함수의 내용이 실행되진 않음
@@ -22,7 +22,7 @@
         }
         sayHello2()
 
-        let sayHello3 = () => {  //함수 표현식
+        let sayHello3 = () => {  //함수 표현식 ( 화살표 함수)
             console.log("hello3")
         }
         sayHello3()
@@ -62,10 +62,9 @@
         function ddd( num1 ) {
             return num1 + 5
         }
-        ddd( 5 ) // => 10
         let num = ddd( 5 )
         console.log(num)
-
+        // 4. 예시
         let sum = function( num1, num2) {
             let num = num1 + num2;
             let mul = num * 5;
