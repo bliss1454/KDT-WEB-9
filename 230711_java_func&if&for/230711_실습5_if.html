@@ -9,17 +9,43 @@
     <script>
         let age = Number(prompt("나이를 입력하세요")) ;
         let gender = prompt("성별을 입력하세요")
-             if( age >= 20 ) {
-                alert("성인"+ gender ) 
-             } else if ( age >= 17 ) {
-                alert("고등학생" + gender )
+
+        // if(age >= 20) {
+          //  alert('성인 , ${gender}')
+        //}
+             if( age >= 20 ) {     
+                if(gender == "여자") {
+                    alert("성인 여자 " )
+                } else {
+                    alert("성인 남자")
+                }
+            } else if ( age >= 17 ) {
+                if(gender == "여자") {
+                    alert("고등학생 여자 " )
+                } else {
+                    alert("고등학생 남자")
+                }
             } else if ( age >= 14) {
-                alert("중학생" + gender )
+                if(gender == "여자") {
+                    alert("중학생 여자 " )
+                } else {
+                    alert("중학생 남자")
+                }
             } else if ( age >= 8) {
-                alert("초등학생" + gender )
+                if(gender == "여자") {
+                    alert("초등학생 여자 " )
+                } else {
+                    alert("초등학생 남자")
+                }
             } else if ( age >= 0) {
-                alert("유아" + gender )
-            } 
+                if(gender == "여자") {
+                    alert("유아 여자 " )
+                } else {
+                    alert("유아 남자")
+                }
+            } else {
+                alert("오류 발생")
+            }
     
         </script>
 </body>
