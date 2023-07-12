@@ -31,7 +31,7 @@
     </div>
 
     <button type="button" onclick="createGreenBox()">생겨라 !</button>
-
+    <button type="button" onclick="removeGreenBox()">사라져라 !</button>
     <script>
         let container = document.querySelector(".container")
         //console.log(container)
@@ -41,7 +41,7 @@
         console.log(redBox.parentNode) //parentNode는 배열에 담지 않고 요소 하나를 찍음
         console.log(redBox.nextElementSibling)
 
-        let orangeBox = document.getElementById("orange")
+        //let orangeBox = document.getElementById("orange")
         console.log(orangeBox.previousElementSibling)
 
         function createGreenBox(){
@@ -55,12 +55,22 @@
             //append는 매개변수로 문자열과 노드객체를 모두 받을 수 있다.
             //appendChild는 매개변수로 노드객체만 받을 수 있다.
 
-            container.append("안녕?")
+            //container.append("안녕?")
             //문자열 추가도 가능
+            
+            //container.prepend(createBox)
+            //부모요소(container)에 첫번째 자식으로 괄호 안의 요소
+            //orangeBox.before(createBox)
+            ornageBox.after(createBox)
         }
-       
+            function removeBox(){
+                let orangeBox = document.getElementById("orange")
+                //orangeBox.remove()
+                container.removeChild(orangeBox)
+            }
         //redBox.setAttribute("class","box orange") 
         //setAttribute는 속성을 바꿔줌. setAttribut("속성명","지정할 속성")
+        
         
         
     </script>
