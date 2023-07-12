@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        
+        let numbers = [];
+        let sum = 0;
+        
+        //for구문
+        for(let i=1; i<=100; i++){
+          numbers.push(i);
+        }
+        console.log(numbers);
+        
+        for(let j=0; j<numbers.length; j++) {
+            sum += numbers[j]
+        }
+        console.log(sum)
+
+        //for of문
+        sum = 0;
+        for(let number of numbers) {
+            sum += number
+        }
+        console.log(sum)
+
+        //forEach구문
+        sum = 0;
+        numbers.forEach((data)=>{
+            sum+=data;
+        })
+        console.log(sum);
+
+    </script>
+</body>
+</html>

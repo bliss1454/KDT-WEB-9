@@ -24,9 +24,23 @@
         //     console.log(fruits[i]);
         //     }
         
-        // for(let fruit of fruits) {
-        //     console.log(fruit);
-        // }
+        for(let fruit of fruits) {
+            console.log(fruit);
+        }
+
+        forEach는 함수의 매개변수로 함수를 받음
+        fruits.forEach(function( data, index, arr){
+            console.log("data",data);
+            console.log("index", index);
+            console.log("arr", arr);
+        })
+
+        // fruits.forEach((data, index, arr)=> {
+        //     console.log("data",data);
+        //     console.log("index", index);
+        //     console.log("arr", arr);
+        //  })
+
         // for( 변수선언 of 선언)
 
         // let fruits = ["apple", "banana", "orange", "grape"]
@@ -78,15 +92,15 @@
         // }
 
         // 구구단 만들기 : 값1 x 값2 = 결과
-        let i = 2;
-        while(i<10) {
-            let j = 1;
-            while (j<10){
-                console.log(`${i}x${j} = ${i*j}`)
-                j++;
-            }
-            i++;
-        }
+        // let i = 2;
+        // while(i<10) {
+        //     let j = 1;
+        //     while (j<10){
+        //         console.log(`${i}x${j} = ${i*j}`)
+        //         j++;
+        //     }
+        //     i++;
+        // }
 
 
 

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let str = 'Happy day~! ';
+        console.log(str.length)
+
+        //대문자, 소문자로 변경해줌
+        console.log(str.toUpperCase())
+        console.log(str.toLowerCase())
+
+        console.log(str.indexOf('e'))
+
+        //console.log(str.slice(시작인덱스, 끝인덱스))
+        console.log(str.slice(2,7))
+
+        console.log(str.replace('p','a'))
+        console.log(str.replaceAll('p','a'))
+
+        //반복해줌
+        console.log(str.repeat(6))
+
+        //끝의 공백을 제거해줌
+        console.log(str.trim())
+
+        // /를 기준으로 잘라줌
+        '이름/성별/전화번호'
+        '2023-07-12'
+        console.log(str.split(" "))
+
+        let hello = "Hello~";
+        let helloRvs = hello.split("").reverse().join("")
+        //["H","e","l","l","o","~"]
+        //["~","o","l","l","e","H"]
+        console.log(helloRvs)
+
+        console.log(hello.split("").reverse().join("/"))
+    </script>
+</body>
+</html>
