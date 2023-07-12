@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box{
+            width: 100px;
+            height: 100px;
+        }
+        .red{
+            background-color: red;
+        }
+        .orange{
+            background-color: orange;
+        }
+        .yellow{
+            background-color: yellow;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div id="red" class="box red"></div>
+        <div id="orange" class="box orange"></div>
+        <div class="box yellow"></div>
+    </div>
+
+    <script>
+        let container = document.querySelector(".container")
+        //console.log(container)
+        console.log(container.children)
+
+        let redBox = document.getElementById("red")
+        console.log(redBox.parentNode) //parentNode는 배열에 담지 않고 요소 하나를 찍음
+        console.log(redBox.nextElementSibling)
+
+        //redBox.setAttribute("class","box orange") 
+        //setAttribute는 속성을 바꿔줌. setAttribut("속성명","지정할 속성")
+        
+        
+    </script>
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box{
+            width: 100px;
+            height: 100px;
+        }
+        .red{
+            background-color: red;
+        }
+        .orange{
+            background-color: orange;
+        }
+        .yellow{
+            background-color: yellow;
+        }
+    </style>
+</head>
+<body>
+   <div id="red" class="box red"></div>
+   <div id="orange" class="box orange"></div>
+   <div class="box yellow"></div>
+
+    <input type="text" name="id" />
+
+    <script>
+        //근데 왜 하는거야????
+        let redBoxByID = document.getElementById("red")
+        console.log(redBoxByID)
+        let boxes = document.getElementsByClassName("box")
+        console.log(boxes)
+
+        let boxesByTag = document.getElementsByTagName("div")
+        console.log(boxesByTag)
+
+        let input = document.getElementsByName("id")
+        console.log(input) 
+
+        //querySelector는 무조건 위의 하나만 담는다.
+        let boxesBySelecotr = document.querySelector(".box")
+        console.log(boxesBySelecotr)
+
+        //모두 담는다. .class(선택자)
+        let boxesBySelecotrAll = document.querySelectorAll(".box")
+        console.log(boxesBySelecotrAll)
+
+        //orange라는 #id만 담는다.
+        let orangeBySelecotrAll = document.querySelectorAll("#orange")
+        console.log(orangeBySelecotrAll)
+    </script>
+</body>
+</html>
