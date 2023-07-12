@@ -2,45 +2,13 @@
   TODO: HTML 요소들의 크기는 미리 설정해 두었습니다.
   position, animation 등을 활용하여 과제를 완성해주세요!
 */
-body {
-  width: 100%;
-}
 
-section {
-  width: 700px;
-  height: 450px;
-}
-
-section .sky {
-  width: 100%;
-  height: 100%;
-}
-
-section .sky .sun {
-  width: 180px;
-}
-
-section .sky .moon {
-  width: 160px;
-}
-
-section .sky .cloud_1 {
-  width: 160px;
-}
-
-section .sky .cloud_2 {
-  width: 90px;
-}
-
-section .city .city_img {
-  width: 100%;
-}
 
 /* ANIMATION */
 /* 
   TODO:.5종류의 애니메이션이 필요함
-  - sky: 배경색 변경 애니메이션
-  - sun: sun.png가 회전하는 애니메이션
+
+  
   - moon: moon.png가 회전하는 애니메이션
   - cloud_1: 큰 구름이 좌우로 이동하는 애니메이션
   - cloud_2: 작은 구름이 좌우로 이동하는 애니메이션

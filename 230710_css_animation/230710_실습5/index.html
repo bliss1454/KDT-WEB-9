@@ -5,22 +5,176 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Animation 실습</title>
-    <link rel="style.css" href="./style.css">
+    <style>
+        body {
+          width: 100%;
+        }
+
+        section {
+          width: 700px;
+          height: 450px;
+          position: relative;
+        }
+
+        section .sky {
+          width: 100%;
+          height: 100%;
+          position: absolute;
+          animation: sky 5s linear infinite;
+        }
+        @keyframes sky {
+          0% {background-color: #636888; 
+          }
+          25% {background-color:#b1e1e2; 
+          }  
+          50% {background-color:#fcd2e2; 
+          }
+          75%{background-color:#675577; 
+          }
+          100%{background-color: #636888;
+          }  
+        }
+
+        section .sky .sun {
+          width: 120px;
+          margin-top: 0%;
+          position: absolute;
+          left: 25px;
+          top: 20px;
+          animation: sun 5s linear infinite;
+        }
+        @keyframes sun {
+          0%{
+            transform: rotate(72deg);
+            opacity: 0;
+          }
+          25%{
+            transform: rotate(154deg);
+            opacity: 0.75;
+          }
+          50%{
+            transform: rotate(226deg);
+            opacity: 1;
+          }
+          75%{
+            transform: rotate(298deg);
+            opacity: 0.25;
+          }
+         100% {
+            transform: rotate(360deg);
+            opacity: 0;
+          }
+        }
+         
+        section .sky .moon {
+          width: 120px;
+          position: absolute;
+          left: 25px;
+          top: 20px;
+          animation: moon 5s linear infinite;
+        }
+        @keyframes moon {
+          0%{
+            transform: rotate(72deg);
+            opacity: 1;
+          }
+          25%{
+            transform: rotate(154deg);
+            opacity: 0.25;
+          }
+          50%{
+            transform: rotate(226deg);
+            opacity: 0;
+          }
+          75%{
+            transform: rotate(298deg);
+            opacity: 0.75;
+          }
+         100% {
+            transform: rotate(360deg);
+            opacity: 1;
+          }
+        }
+
+        section .sky .cloud_1 {
+          width: 120px;
+          position: relative;
+          left: 60px;
+          top: 100px;
+          animation: cloud_1 3s linear infinite;
+        }
+        @keyframes cloud_1 {
+          0% {
+                left: 70px; 
+                opacity: 1;
+            }
+            25%{
+               left: 140px; 
+                opacity: 0.25;
+            }
+            50%{
+               left: 210px;
+                opacity: 0.5;
+            }
+            75%{
+               left: 280px; 
+                opacity: 0.75;
+            }
+            100% {
+               left: 350px; 
+                opacity: 1;
+            }
+        }
+
+        section .sky .cloud_2 {
+          width: 60px;
+          position: relative;
+          top: 100px;
+          animation: cloud_2 2s linear infinite;
+        }
+        @keyframes cloud_2 {
+            0% {
+                left: 70px; 
+                opacity: 1;
+            }
+            25%{
+               left: 140px; 
+                opacity: 0.25;
+            }
+            50%{
+               left: 210px;
+                opacity: 0.5;
+            }
+            75%{
+               left: 280px; 
+                opacity: 0.75;
+            }
+            100% {
+               left: 350px; 
+                opacity: 1;
+            }
+          }
+
+        section .city .city_img {
+            width: 70%;
+            top: 170px;
+            left: 100px;
+            position: absolute;    
+        }
+    </style>
   </head>
 
   <body>
     <section>
       <article class="sky">
-        <!-- TODO: src 속성에 알맞은 이미지를 채워주세요. -->
-        <img src="#" alt="태양" class="sun" />
-        <img src="#" alt="달" class="moon" />
-        <img src="#" alt="큰 구름" class="cloud_1" />
-        <img src="#" alt="작은 구름" class="cloud_2" />
+        <img src="./img/sun.png" alt="태양" class="sun" />
+        <img src="./img/moon.png" alt="달" class="moon" />
+        <img src="./img/cloud.png" alt="큰 구름" class="cloud_1" />
+        <img src="./img/cloud.png" alt="작은 구름" class="cloud_2" />
       </article>
 
       <article class="city">
-        <!-- TODO: src 속성에 알맞은 이미지를 채워주세요. -->
-        <img src="#" alt="도시" class="city_img" />
+        <img src="./img/city.png" alt="도시" class="city_img" />
       </article>
     </section>
   </body>
