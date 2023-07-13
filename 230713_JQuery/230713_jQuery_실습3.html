@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.min.js" integrity="sha256-lSjKY0/srUM9BE3dPm+c4fBo1dky2v27Gdjm2uoZaL0=" crossorigin="anonymous"></script>
+
+    <style>
+        table {border-collapse: collapse;}
+        td { padding:3px; width: 100px; height: 100px;}
+        thead { background-color: white; font-weight: solid;}
+        th {text-align: center; font-weight: bold;}
+    </style>
+</head>
+<body>
+    <div>
+        날짜 : 
+        <input type="text" name="date" id="date" />
+    </div>
+    <div>
+        내용 : 
+        <input type="text" name="comment" id="comment" />
+    </div>
+    <button type="button" onclick="schedule()">작성</button>
+    <br/>
+    <table>
+        <thead> 
+        <tr>
+            <th style="color: red ;">日</th>
+            <th>月</th>
+            <th>火</th>
+            <th>水</th>
+            <th>木</th>
+            <th>金</th>
+            <th>土</th>
+        </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td>1</td>
+                <td>2</td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>4</td>
+                <td>5</td>
+                <td>6</td>
+                <td>7</td>
+                <td>8</td>
+                <td>9</td>
+            </tr>
+            <tr>
+                <td>10</td>
+                <td>11</td>
+                <td>12</td>
+                <td>13</td>
+                <td>14</td>
+                <td>15</td>
+                <td>16</td>
+            </tr>
+            <tr>
+                <td>17</td>
+                <td>18</td>
+                <td>19</td>
+                <td>20</td>
+                <td>21</td>
+                <td>22</td>
+                <td>23</td>
+            </tr>
+            <tr>
+                <td>24</td>
+                <td>25</td>
+                <td>26</td>
+                <td>27</td>
+                <td>28</td>
+                <td>29</td>
+                <td>30</td>
+            </tr>
+            <tr>
+                <td>31</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+        </tbody>
+        
+
+
+        <script>
+            $("td").on("click", function(obj) {
+                console.log(this)
+                let date= $(this).text()
+                console.log(date)
+                $("#date").val(date) // 
+            })
+
+            function schedule() {
+                let comment= $("#comment").val()
+                console.log(comment)
+               // $("comment").append("")
+
+            }
+        
+
+        </script>
+    </table>
+</body>
+</html>
