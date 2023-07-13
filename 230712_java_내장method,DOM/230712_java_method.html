@@ -7,6 +7,7 @@
 </head>
 <body>
     <script>
+        //글자수를 세줌
         let str = 'Happy day~! ';
         console.log(str.length)
 
@@ -14,11 +15,13 @@
         console.log(str.toUpperCase())
         console.log(str.toLowerCase())
 
-        console.log(str.indexOf('e'))
+        //p라는 글자가 몇번째에 있는지 알려줌 
+        console.log(str.indexOf('p'))
 
         //console.log(str.slice(시작인덱스, 끝인덱스))
         console.log(str.slice(2,7))
 
+        //글자 대체
         console.log(str.replace('p','a'))
         console.log(str.replaceAll('p','a'))
 
@@ -39,6 +42,7 @@
         //["~","o","l","l","e","H"]
         console.log(helloRvs)
 
+        //메소드 체이닝 : 각각의 메소드를 연결해서 사용하는 개념
         console.log(hello.split("").reverse().join("/"))
     </script>
 </body>

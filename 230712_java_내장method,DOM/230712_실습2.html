@@ -1,81 +1,112 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
 <body>
-    <div>방명록입니다.</div>
-    <br/>
-    <div>작성자
-        <input type="text" name="name" id="writer">
+    <div>
+        작성자 : 
+        <input type="text" name="name" id="writer" />
     </div>
-    <div>내용
-        <input type="text" name="comment" id="comment">
+    <div>
+        내용 : 
+        <input type="text" name="comment" id="comment" />
     </div>
+
+    <button type="button" onclick="addRow2()">작성</button>
     
-    <br/>
-    <button type="button" onclick="addRow()">작성</button>
-    <br/><br/>
-    
-    <table 
-    border ="1" 
-    cellspacing="1" 
-    cellpadding="8"  
-    width="60%"
-    bordercolor="gray"
-    >
-    <thead>
+    <table border="1" cellspacing="0">
         <tr>
             <th>번호</th>
             <th>작성자</th>
             <th>내용</th>
             <th>작성일</th>
         </tr>
-    </thead>
-   
-    </tbody>
     </table>
+
 
     <script>
         let num = 1;
+        
         function addRow() {
             let table = document.querySelector("table");
-           
-            //tr 태그 생성
+            // tr 태그 생성
             let tr = document.createElement("tr");
-
-            //번호 td생성
+            
+            // 번호 td
             let NumTd = document.createElement("td")
             NumTd.innerText = num;
-            
-            //작성자 td
+
+            // 작성자 td
             let writerTd = document.createElement("td")
             let writer = document.getElementById("writer").value
-            wirterTd.innerText = writer;
+            writerTd.innerText = writer;
 
-            //내용 td
+            // 내용 td! 
             let commentTd = document.createElement("td")
             let comment = document.getElementById("comment").value
-            commentTd.innnerText = text ;
+            commentTd.innerText = comment;
 
-            //작성일 td
+
+            // 작성일 td
             let dateTd = document.createElement("td")
-            let date =  new Date();
-            let dateStr = `${date.getFullYear}-${date.getMonth+1}-${date.getDate()} ${date.getHours()}`
+            let date = new Date()
+            let dateStr = `${date.getFullYear()}-${date.getMonth()+1}-${date.getDate()} ${date.getHours()}:${date.getMinutes()}`
             dateTd.innerText = dateStr;
 
-            //tr의 자식으로 td태그 추가하기
+
+            // tr의 자식으로 td 태그 추가하기
             tr.appendChild(NumTd)
             tr.appendChild(writerTd)
             tr.appendChild(commentTd)
             tr.appendChild(dateTd)
 
+            // <tr>
+            //     <td>1</td>
+            //     <td>lily</td>
+            //     <td>안녕?</td>
+            //     <td>2023-7-12 20:51</td>
+            // </tr>
+            
             table.appendChild(tr)
             num++;
-     }
-    </script>
+            document.getElementById("writer").value = ''
+            document.getElementById("comment").value = ''
 
+        }
+
+        function addRow2() {
+            let table = document.querySelector("table");
+            // tr 태그 생성
+            let tr = document.createElement("tr");
+            
+            let writer = document.getElementById("writer").value
+            let comment = document.getElementById("comment").value
+            let date = new Date()
+            let dateStr = `${date.getFullYear()}-${date.getMonth()+1}-${date.getDate()} ${date.getHours()}:${date.getMinutes()}`
+            
+            tr.innerHTML = `
+                <td>${num}</td>
+                <td>${writer}</td>
+                <td>${comment}</td>
+                <td>${dateStr}</td>
+            `
+
+            // <tr>
+            //     <td>1</td>
+            //     <td>lily</td>
+            //     <td>안녕?</td>
+            //     <td>2023-7-12 20:51</td>
+            // </tr>
+            
+            table.appendChild(tr)
+            num++;
+            document.getElementById("writer").value = ''
+            document.getElementById("comment").value = ''
+
+        }
+    </script>
 </body>
 </html>

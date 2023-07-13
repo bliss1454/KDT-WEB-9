@@ -17,11 +17,12 @@
        console.log(now.getDay()) //3 //요일을 숫자로 반환해줌
        console.log(now.getTime() >= expired.getTime())
 
-        let year = now.getFullYear()
-        let month = now.getMonth()+1
-        let date = now.getDate()
+       let year = now.getFullYear()
+       let month = now.getMonth()+1
+       let date = now.getDate()
        console.log(`${year}-${month >=10 ? month : "0"+month}-${date >=10 ? date : "0"+date}`)
         
+        //Math 객체
         console.log(Math.PI)
         console.log(Math.E)
         console.log(Math.min(2,5,7,8))
