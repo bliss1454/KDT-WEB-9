@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.min.js" integrity="sha256-lSjKY0/srUM9BE3dPm+c4fBo1dky2v27Gdjm2uoZaL0=" crossorigin="anonymous"></script>
+</head>
+<body>
+    <input type="button" id="id" placeholder="hi"/>
+    <div>강아지</div>
+
+    <script>
+        // $("input").val(); //input과 같은 value 가져오기
+        // $("input").val("hello"); // 값 바꿔주기
+        
+        // document.getElementById("id").value = "hello"; // 바닐라 js
+        // $("#id").val("hello"); //jQuery
+
+        //     // css 변경
+        //     $("div").css("background-color", "blue")
+        //     $("div").css("border-radius", "20px")
+
+        //     // attr 함수 : 속성 변경하기
+        //     $("input").attr("placeholder", "아이디 입력하세요.")
+
+        //     // text 함수 .innerText (태그도 같이 추가됨)
+        //     $("div").text("<p>Hi</p>")
+
+        //     // html 함수 .innerHTML (태그는 알아서 익힘)
+        //     $("div").html("<p>Hi</p>")
+
+        //     // append 함수
+        //     // let h1 = document.createElement("h1")
+        //     // h1.innerText = "안녕?"
+        //     // document.querySelector("div").append(h1) 
+        //     // -->h1 선언, h1이라는 요소를 만들거야. 그리고, h1에 innerText로 안녕? 써줘. 그 h1을 div태그에다가 추가할게.
+        //     $("div").append(`<h1>안녕?</h1>`)
+
+        //     // prepend 함수
+        //     $("div").prepend("<h1>안녕?</h1>")
+
+        //     // after 함수
+        //     $("div").after("<h1>안녕?</h1>")
+
+        //     // before 함수
+        //     $("div").before("<h1>안녕?</h1>")
+
+        //     // empty 함수
+        //     $("div").empty()
+
+        //     // remove 함수
+        //     // $("div").remove()
+
+
+            // addClass 함수
+            $("div").addClass("red")
+
+            //removeClss 함수 : 선택된 요소에 클래스 삭제
+            // $("div").removeClass()
+            // $("div").removeClass("red")
+
+            // hasClass 함수 : 선택된 요소에 클래스가 있는지 여부 확인
+            //console.log($("div").hasClass("red"))
+
+            //toggleClass 함수 : 선택된 요소에 클래스가 있으면 추가, 없으면 삭제
+            $("div").toggleClass("red")
+            console.log($("div").toggleClass("red"))
+    
+    </script>
+</body>
+</html>

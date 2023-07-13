@@ -20,28 +20,30 @@
     </div>
     <button type="button">button</button>
     <script>
-        window.addEventListener("load", function() {})
+       // window.addEventListener("load", function() {})
 
-        // $(window).ready(function(){
-        //     $(".container").append(`<h1>안녕</h1>`)
-        // })
+         //로딩 이벤트
+        $(window).ready(function(){
+            $(".container").append(`<h1>안녕</h1>`)
+        })
 
-        // $(function() { //페이지 로드 완료 후에 실행되는 함수
-        //     $(".container").append(`<h1>안녕</h1>`)
-        //  })
+        $(function() { //페이지 로드 완료 후에 실행되는 함수
+            $(".container").append(`<h1>안녕</h1>`)
+         })
 
-        // $("button").on("click", function() {
-        //     alert("click")
-        // })
+         //마우스 이벤트
+        $("button").on("click", function() {
+            alert("click")
+        })
 
-        // $("button").click(function() {
-        //     alert("click")
-        // })
+        $("button").click(function() {
+            alert("click")
+        })
 
         //hover는 요소 영역에 마우스가 올라가 있는 동안을 말함
-        // $("button").hover(function() { 
-        //     alert("click") 
-        // })
+        $("button").hover(function() { 
+            alert("click") 
+        })
 
         //mouseover는 마우스가 올라가는 순간을 말함
         $("button").mouseover(function() { 
@@ -52,6 +54,7 @@
             console.log("scrolling")
         })
 
+        //키보드 이벤트
         $("input").keyup(function(e) {
             console.log(e.currentTarget)
             console.log(this)

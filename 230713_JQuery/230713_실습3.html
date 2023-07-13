@@ -9,12 +9,13 @@
 
     <style>
         table {border-collapse: collapse;}
-        td { padding:3px; width: 100px; height: 100px;}
+        td { padding:3px; width: 100px; height: 100px; align-items: center;}
         thead { background-color: white; font-weight: solid;}
         th {text-align: center; font-weight: bold;}
     </style>
 </head>
 <body>
+
     <div>
         날짜 : 
         <input type="text" name="date" id="date" />
@@ -25,6 +26,8 @@
     </div>
     <button type="button" onclick="schedule()">작성</button>
     <br/>
+    <div>
+        <h1 style="color: rgb(130, 170, 130);"> 2023년 7월 </h1>
     <table>
         <thead> 
         <tr>
@@ -93,22 +96,23 @@
                 <td></td>
             </tr>
         </tbody>
+    </div>
         
 
-
         <script>
+            let td = null;
             $("td").on("click", function(obj) {
                 console.log(this)
+                td = this; //td태그를 담는 코드
                 let date= $(this).text()
                 console.log(date)
-                $("#date").val(date) // 
+                $("#date").val(date)
             })
 
             function schedule() {
                 let comment= $("#comment").val()
                 console.log(comment)
-               // $("comment").append("")
-
+                $(td).append (`<p>${comment}</p>`)
             }
         
 
