@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            width: 300px;
+            height: 300px;
+            position: relative;
+        }
+
+        .img {
+            width: 250px;
+            height: 250px;
+            position: absolute;
+            margin-top: auto;
+        }
+    </style>
+</head>
+<body>
+    <div id="box">
+        <img class="img" id="aa" src="./사과.jpeg" />
+        <img class="img" id="bb" src="./바나나.jpeg" />
+        <img class="img" id="cc" src="./포도.jpeg" />
+        <img class="img" id="dd" src="./복숭아.jpg" />
+    </div>
+
+    <button id="a" onclick="a()">사과</button>
+    <button id="b" onclick="b()">바나나</button>
+    <button id="c" onclick="c()">포도</button>
+    <button id="d" onclick="d()">복숭아</button>
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
+    <script>
+        
+        function a(){
+            $("img").css("display", "none");
+            $("#aa").css("display", "inline-block")
+        }
+
+        function b(){
+            $("img").css("display", "none");
+            $("#bb").css("display", "inline-block")
+        }
+
+        function c(){
+            $("img").css("display", "none");
+            $("#cc").css("display", "inline-block")
+        }
+
+        function d(){
+            $("img").css("display", "none");
+            $("#dd").css("display", "inline-block")
+        }
+
+    </script>
+</body>
+</html>

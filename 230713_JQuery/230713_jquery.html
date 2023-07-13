@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
+    <style>
+        .box {
+            width: 100px;
+            height: 100px;
+            transition: all 1s;
+        }
+
+        .red {
+            background-color: red;
+        }
+
+        .orange {
+            background-color: orange;
+        }
+    </style>
+</head>
+<body>
+    <input type="text" name="id" id="id"/>
+    <button onclick="submitt()">바껴라!</button>
+    <button onclick="btn2()">사라져라!</button>
+
+    <div></div>
+    <div></div>
+    
+    <div class="container">
+        <div class="yellow"></div>
+        <div class="orange"></div>
+        <div class="orange"></div>
+        <div class="red"></div>
+    </div>
+
+    <button onclick="fn3()">요소 탐색</button>
+    <script>
+        function fn3(){
+           // console.log($(".container").children().removeClass("red"))
+            
+        //    console.log($(".orange").parent())
+        //    console.log($(".orange").parents(".container")) //모든 상위 요소
+        //    console.log($(".orange").next("")) //다음 형제요소
+        //    console.log($(".orange").prev("")) //이전 형제요소
+        
+        //console.log($(".red").nextAll(""))
+        console.log($(".red").prevAll(".orange"))
+    
+        }
+
+        function submitt(){
+        //     // let valueJQeury = $("#id").val() // jQuery
+        //     // let valueJs = document.getElementById("id").value // 바닐라 js
+        //     // console.log(valueJQeury, valueJs)
+
+        //     // document.getElementById("id").value = "aaa"; // 바닐라 js
+        //     // $("#id").val("aaa"); //jQuery
+
+        //     // css 변경
+        //     // $("div").css("background-color", "blue")
+        //     // $("div").css("border-radius", "20px")
+
+        //     // attr 함수
+           $("input").attr("placeholder", "아이디 입력하세요.")
+
+        //     // text 함수 .innerText
+        //     // $("div").text("<p>Hi</p>")
+
+        //     // html 함수 .innerHTML
+        //     // $("div").html("<p>Hi</p>")
+
+        //     // append 함수
+        //     // let h1 = document.createElement("h1")
+        //     // h1.innerText = "안녕?"
+        //     // document.querySelector("div").append(h1)
+        //     $("div").append(`<h1>안녕?</h1>`)
+
+        //     // prepend 함수
+        //     $("div").prepend("<h1>안녕?</h1>")
+
+        //     // after 함수
+        //     $("div").after("<h1>안녕?</h1>")
+
+        //     // before 함수
+        //     $("div").before("<h1>안녕?</h1>")
+
+        //     // empty 함수
+        //     $("div").empty()
+
+        //     // remove 함수
+        //     // $("div").remove()
+
+
+        //     // addClass 함수
+        //     $("div").addClass("red")
+         }
+
+        // function btn2() {
+        //     //removeClss 함수
+        //     // class=""
+        //     // $("div").removeClass()
+        //     // $("div").removeClass("red")
+
+        //     // hasClass 함수
+        //     console.log($("div").hasClass("red"))
+
+        //     //toggleClass 함수
+        //     $("div").toggleClass("red")
+        // }
+    </script>
+</body>
+</html>

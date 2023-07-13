@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+    </style>
+</head>
+<body>
+    <!--<div onclick=""></div>-->
+    <button type="button">버튼</button>
+    <input type="text" name="id" placeholder="id를 입력해주세요" />
+    <input type="text" name="pw" placeholder="비밀번호를 입력해주세요" />
+
+
+
+    <script>
+        //function aaa() {
+
+        //}
+        
+        let button = document.querySelector("button");
+
+        button.addEventListener("click", function() {
+            alert("클릭!")
+        })
+
+        //button.addEventListener("mousedown",function() {
+        //    alert("클릭!")
+        //})
+
+        let input = document.querySelectorAll("input")
+        for(let i=0;i<input.length;i++) {
+            input[i].addEventListener("focus",(e)=>{
+                e.currentTarget.style.backgroundcolor = "black";
+            })
+        }   
+
+
+            input[i].addEventListener("blur",(e)=>{
+                //event, e, target으로 매개변수 이름을 설정해준다.
+                //console.log(e.currentTarget)
+                //input.style.backgroundColor="black";
+                e.currentTarget.style.backgroundcolor = "initial";
+            })
+    </script>
+</body>
+</html>
