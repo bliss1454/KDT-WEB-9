@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+   <!-- <style>
+        body {
+            background-color: indianred;
+            color: white;
+        }
+        .box {
+            font-size: 100px;
+        }
+        /* css는 순서대로 익힌다 */
+
+        /* @media 유형 and (조건) {
+             body() css문법이 여기에 옴 -->
+        <!-- }  */ -->
+        <!-- /* 유형 : screen, print, all */
+        /* 크기 조건 : max, min-width/ max, min-height */
+        /* max-width : 오른쪽에 나온 숫자 값 "이하"일때 */
+        /* min-width : 오른쪽에 나온 숫자 값 "이상"일때 */ -->
+        <!-- @media screen and (max-width : 700px) {
+            body {
+                background-color: green;  /* 700px이하일 때 그린으로 바뀜*/
+                /* font-family: serif; */
+            }
+        }
+        @media screen and (max-width : 500px) {
+            body {
+                background-color: yellow;  
+            }
+        }
+        @media screen and (max-width : 300px) {
+            body {
+                background-color: black;  
+            }
+        }
+        @media print {
+            .box {
+                display: none;
+            }
+        } -->
+   <!-- </style> -->
+
+   <style>
+    /* body {
+        background-color: black;
+    }
+
+    @media screen and (min-width: 300px) {
+        body {
+            background-color: yellow;
+        }
+    }
+    @media screen and (min-width: 500px) {
+        body {
+            background-color: green;
+        }
+    } */
+
+    /* 가로lanscape, 세로 모드portrait */
+    @media screen and (orientation : landscape) { 
+        body {
+            background-color: blue ;
+        }
+    }
+
+    @media screen and (orientation : portrait) {
+        body {
+            background-color: red;
+        }
+    }
+   </style>
+</head>
+<body>
+    <div class="box">HI</div>
+</body>
+</html>
