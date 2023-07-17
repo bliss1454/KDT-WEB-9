@@ -1,0 +1,7 @@
+# *.txt
+# !test.txt
+
+# module/
+#/module
+
+.Ds_Store
