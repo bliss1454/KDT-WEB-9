@@ -1,0 +1,117 @@
+.container {
+    height: 400px;
+    width: 600px;
+    display: grid; 
+    grid-template-columns: repeat(4, 1fr); 
+    grid-template-columns: repeat(4, 1fr); 
+    grid-template-rows: repeat(4, 1fr); /*세로니까 height값이다*/
+
+    grid-template-areas: 
+    'header header header header' 
+    'nav main main aside'
+    'nav article article2 aside'
+    'footer footer footer footer';
+}
+.item {
+    display: grid;
+    place-items: center center;
+    /* display: flex;
+    align-items: center;
+    justify-content: center; */
+}
+.red {
+    background-color: #F94144;
+    grid-area: header;
+}
+
+.orange {
+    background-color: #f3722c;
+    grid-area: nav;
+}
+
+.orange2 {
+    background-color: #f8961e;
+    grid-area: article;
+}
+
+.yellow {
+    background-color: #f9c74f;
+    grid-area: main;
+}
+
+.green {
+    background-color: #90be6d;
+    grid-area: article2;
+}
+
+.green2 {
+    background-color: #43aa8b;
+    grid-area: aside;
+}
+
+.blue {
+    background-color: #4444ff;
+    grid-area: footer;
+}
+
+/*해설*/
+body {
+    margin: 0;
+}
+.container {
+    display: grid;
+    height: 100vh;
+    grid-template-columns: 1fr 2fr 2fr 1fr;
+    /* grid-template-rows: repeat( 100); */
+    grid-template-areas: 
+    'header header header header'
+    'aside1 section1 section1 aside2'
+    'aside1 section2 section3 aside2'
+    'footer footer footer footer';
+}
+
+.item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.item1 {
+    background-color: #F94144;
+    /* grid-column: auto / span 4; */
+    grid-area: header;
+}
+
+.item2 {
+    background-color: #F3722c;
+    /* grid-row: auto / span 2; */
+    grid-area: aside1;
+}
+
+.item3 {
+    background-color: #F9C74F;
+    /* grid-column: auto / span 2; */
+    grid-area: section1;
+}
+
+.item4 {
+    background-color: #43AA8B;
+    /* grid-row: auto / span 2; */
+    grid-area: aside2;
+}
+
+.item5 {
+    background-color: #F8961E;
+    grid-area: section2;
+}
+
+.item6 {
+    background-color: #90BE6D;
+    grid-area: section3;
+}
+
+.item7 {
+    background-color: #4444FF;
+    /* grid-column: auto / span 4; */
+    grid-area: footer;
+}

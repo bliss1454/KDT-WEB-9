@@ -4,15 +4,15 @@
     /*grid-template-columns: 200px 200px 200px ; 가로줄 정의 : 각각 200픽셀씩의 가로줄*/
     /* grid-template-columns: repeat(3, 200px); 동일한 간격을 정의할때 함수를 사용할 수 있다. 뜻은 위와 같음*/
     /* minmax(최소,최대) */
-    /* grid-template-columns: repeat(3, minmax(100px, auto)); 화면 크기가 달라져도 똑같이 나열됨?*/
+    /* grid-template-columns: repeat(3, minmax(100px, auto)); 화면 크기가 달라져도 똑같이 나열됨*/
     /* grid-template-columns: repeat(3, 1fr); 3칸에 대해서 3등분씩 나눠가지겠다는 비율을 나타내는 함수 (fr은 기준이 있어야함, 따라서 세로에는 fr을 사용못함) */
-    grid-template-columns: repeat(3, 100px);
-    grid-template-rows: repeat(3, 100px); /*행에 대한 기준을 부여*/
+    grid-template-columns: repeat(3, 200px);
+    grid-template-rows: repeat(2, 200px); /*행에 대한 기준을 부여*/
     /* grid-template-rows: repeat(3, 200px); */
     /* row-gap: 20px;
     column-gap: 20px; */
     /* gap: 20px 10px; */
-    gap: 20px;
+    /* gap: 20px; */
     /* justify-items: center; 존재하는 영역 내에서 정렬해줌 */
     /* align-items: center ;  w존재하는 영역 내에서 아이템을 세로 정렬함. 반면에 justify은 가로 정렬함 */
     /* place-items: end center; ~~~~-items : item요소가(즉 자식요소)가 존재할 수 있는 영역 내에서 정렬을 함. align와 justify을 한방에 */
@@ -21,31 +21,59 @@
     /* align-content: center ; content는 통째로 묶어서 부모 영역내에서 정렬하겠다의 의미임 */
     /* place-content: center; */
     /* ~~~-content : container 영역내에서 부모 요소 자체를 통채로 정렬할 수 있다. */
+
+    grid-template-areas: 
+    'header header header'  /*(행 행 행)=>행을 기준으로 함 그리고 띄어쓰기가 열의 기준임. 비워두고 싶으면 . 이 와도됨. 3개의 열이기에 3개가 와야하긴 함.*/
+    'nav main aside'
+    'footer footer footer';
 }
 
 .item {
-    width: 100px;
-    height: 100px;
+    /* width: 100px;
+    height: 100px; */
+
 }
 
 .red {
+    /* order: 1; 배치 순서를 바꾸고싶다. 작은 수부터 배치가 된다(음수값도 가능하다) */
     background-color: red;
+    /* grid-column: 1/ 4; 첫번째부터 4번째까지 합치겠다 */
+    /* grid-column: 1/ span 3; 일에서부터 세칸을 합치겠다 사실상 위와 같은 말임 */
+    /* grid-column: auto / span 3; 원래의 위치에서 (세로로) 세칸을 합치겠다 혹은 세칸까지 차지하겠다는 의미 */
+    /* place-self: center; */
+    /* grid-column-start: 1 ;
+    grid-row-end: 4 ; */
+
+    grid-area: header;
 }
 
 .orange {
     background-color: orange;
+    /* grid-row: 2/ 4; */
+    /* grid-row: auto / span 2; 위와 같은 말. 원래의 위치에서 (가로로) 2칸을 합치겠다 */
+    /* place-self: center ; */
+
+    grid-area: nav;
 }
 
 .yellow {
     background-color: yellow;
+    /* justify-self: center;
+    align-self: center; */
+    /* place-self: center; (본인만의 영역 내에서) 본인만의 위치를 설정 */
+    grid-area: main;
 }
 
 .green {
     background-color: green;
+    /* width: 500px; */
+    /* z-index: 1; 파랑(기본값0)보다 나중에 나오기 때문에 위로 올라오게됨 */
+    grid-area: aside;
 }
 
 .blue {
     background-color: blue;
+    grid-area: footer;
 }
 
 .navy {
