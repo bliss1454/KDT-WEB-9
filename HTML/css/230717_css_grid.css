@@ -1,0 +1,57 @@
+.container {
+    height: 500px;
+    display: grid; /*부모요소에 줘야함*/
+    /*grid-template-columns: 200px 200px 200px ; 가로줄 정의 : 각각 200픽셀씩의 가로줄*/
+    /* grid-template-columns: repeat(3, 200px); 동일한 간격을 정의할때 함수를 사용할 수 있다. 뜻은 위와 같음*/
+    /* minmax(최소,최대) */
+    /* grid-template-columns: repeat(3, minmax(100px, auto)); 화면 크기가 달라져도 똑같이 나열됨?*/
+    /* grid-template-columns: repeat(3, 1fr); 3칸에 대해서 3등분씩 나눠가지겠다는 비율을 나타내는 함수 (fr은 기준이 있어야함, 따라서 세로에는 fr을 사용못함) */
+    grid-template-columns: repeat(3, 100px);
+    grid-template-rows: repeat(3, 100px); /*행에 대한 기준을 부여*/
+    /* grid-template-rows: repeat(3, 200px); */
+    /* row-gap: 20px;
+    column-gap: 20px; */
+    /* gap: 20px 10px; */
+    gap: 20px;
+    /* justify-items: center; 존재하는 영역 내에서 정렬해줌 */
+    /* align-items: center ;  w존재하는 영역 내에서 아이템을 세로 정렬함. 반면에 justify은 가로 정렬함 */
+    /* place-items: end center; ~~~~-items : item요소가(즉 자식요소)가 존재할 수 있는 영역 내에서 정렬을 함. align와 justify을 한방에 */
+
+    /* justify-content: center ; */
+    /* align-content: center ; content는 통째로 묶어서 부모 영역내에서 정렬하겠다의 의미임 */
+    /* place-content: center; */
+    /* ~~~-content : container 영역내에서 부모 요소 자체를 통채로 정렬할 수 있다. */
+}
+
+.item {
+    width: 100px;
+    height: 100px;
+}
+
+.red {
+    background-color: red;
+}
+
+.orange {
+    background-color: orange;
+}
+
+.yellow {
+    background-color: yellow;
+}
+
+.green {
+    background-color: green;
+}
+
+.blue {
+    background-color: blue;
+}
+
+.navy {
+    background-color: navy;
+}
+
+.purple {
+    background-color: purple;
+}
