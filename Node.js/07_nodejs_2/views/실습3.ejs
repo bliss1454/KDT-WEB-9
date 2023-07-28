@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body> 
+    <!-- <h4><%= data %>단</h4>
+    for(let i=1 ; i<10; i++) {
+        <div><%= data %> x <%= i %> = <%= data*i %></div>
+        <% } %> --> 
+        <!-- div태그 이용 -->
+    
+    <% for (var i=0 ; i<num.length; i++) { %>
+        <ul><%=num[i] %>단
+    <%    for (var j=1; j<10; j++) { %>   
+        <li><%=num[i] %>*<%=j %>= <%= num[i] *j %></li> <% } %>
+        </ul>
+    <% } %> 
+    <!-- 출력할때 인덱스에 따라 출력 : num[i(인덱스)] -->
+
+    <style>
+        li {
+            list-style: none;
+        }
+    </style>
+
+</body>
+</html>
