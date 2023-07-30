@@ -1,15 +1,15 @@
 const express = require ('express');
 //import express from 'express'와 같은 명령
+//Express 모듈이 export 하는 최상위 함수로, express application을 만듦
 const app = express();
-//함수를 다시 담기(app=?)
+//express() 함수를 호출함으로써 만들어진 express application
 const PORT = 8000;
 
-//ejs사용
+//ejs사용 (ejs템플릿 설정)
 //app.set : 서버의 속성을 지정하는 것
 app.set('view engine', 'ejs');
-app.set('views','./views');
+app.set('views','./views');  //views파일에 담겠다
 
-//Node.js 코드 순서 중요시하기
 //정적인 파일 불러오기 (미들웨어)
 app.use('/public_',express.static('./public_'))
 
