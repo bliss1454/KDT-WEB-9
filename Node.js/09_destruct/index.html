@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //배열 구조 분해
+        const lists = ['apple','grape'];
+        //기존 방식
+        console.log(lists[0],lists[1]);
+        //구조분해
+        [item1, item2, item3 = 'peach'] = lists;
+        console.log("item1: ", item1, "item2: ", item2);
+        console.log(item1,item3);
+        //교환
+        let x = 1, 
+            y = 3;
+        [x, y] = [y, x];
+        console.log(x,y);
+    </script>
+</body>
+</html>

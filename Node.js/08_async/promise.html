@@ -55,8 +55,13 @@
             console.log(`상품명: ${product}, 가격: ${price}`);
         }); */
 
-        //async await
-        
+        //async,await
+        async function exec() {
+            goMart()
+            await pickDrink();
+            pay();
+        }
+        exec();
     </script>
 </body>
 </html>

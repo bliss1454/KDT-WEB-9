@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function changeBgColor(newColor,delay)  {
+            return new Promise ((resolve,reject) => {
+                setTimeout(() => {
+                    document.body.style.backgroundColor = newColor;
+                    resolve();
+                },1000);
+            })
+        }       
+        
+        changeBgColor('red',1000).then(()=> {
+            return changeBgColor('orange',1000);
+        }).then (()=> {
+            return changeBgColor('yellow',1000);
+        }).then (()=> {
+            return changeBgColor('green',1000);
+        }).then (()=> {
+            return changeBgColor('blue',1000);
+        })
+
+        //async/await
+        async function exec() {
+            await changeBgColor('red',1000)
+            await changeBgColor('orange',1000);
+        }
+           
+        // function red() {
+        //     return new Promise (function(resolve, reject) {
+        //         setTimeout(() => {
+        //            document.body.style.backgroundColor = 'red';
+        //            resolve();
+        //         },1000);
+        //     });
+        // }
+
+        // function orange() {
+        //     return new Promise (function(resolve, reject) {
+        //         setTimeout(() => {
+        //            document.body.style.backgroundColor = 'orange';
+        //            resolve();
+        //         },1000);
+        //     });
+        // }
+
+        // function yellow() {
+        //     return new Promise (function(resolve, reject) {
+        //         setTimeout(() => {
+        //            document.body.style.backgroundColor = 'yellow';
+        //            resolve();
+        //         },1000);
+        //     });
+        // }
+
+        // function green() {
+        //     return new Promise (function(resolve, reject) {
+        //         setTimeout(() => {
+        //            document.body.style.backgroundColor = 'green';
+        //            resolve();
+        //         },1000);
+        //     });
+        // }
+
+        // function blue() {
+        //     return new Promise (function(resolve, reject) {
+        //         setTimeout(() => {
+        //            document.body.style.backgroundColor = 'blue';
+        //            resolve();
+        //         },1000);
+        //     });
+        // }
+    
+        // red().then(orange);then(yellow);then(green);then(blue);
+    </script>
+</body>
+</html>
