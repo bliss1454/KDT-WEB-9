@@ -7,7 +7,7 @@
 </head>
 <body>
     <script>
-        //배열 구조 분해
+        //배열 구조 분해 (순서가 중요)
         const lists = ['apple','grape'];
         //기존 방식
         console.log(lists[0],lists[1]);
@@ -20,6 +20,31 @@
             y = 3;
         [x, y] = [y, x];
         console.log(x,y);
+        //객체
+        const Person = {
+            //key: value
+            name: 'bliss',
+            age: 23,
+            gender: 'F',
+            friends: ['Alex','Kevin'],
+            hello: function() {
+                console.log('hello')
+            },
+            "kdt-9": 'CodingOn KDT 9기'
+        }
+        console.log(Person.name);
+        Person.age =29;
+        console.log(Person.age);
+        console.log(Person.friends[0]);
+        Person.hello();
+        console.log(Person['name']);
+        console.log(Person['kdt-9']);
+        // Person['city'] = 'Seoul';
+        Person.city = 'Seoul';
+        console.log(Person);
+        //객체 구조 분해 (KEY값이 중요)
+        const {name,city,gender, key = "hi", age: myAge} = Person
+        console.log(name,city,gender,key,myAge);
     </script>
 </body>
 </html>
