@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.7.0.js" integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <style>
+        li{
+            list-style-type: none;
+        }
+    </style>
+</head>
+<body>
+    <form name="logIn">
+        <h2>NAVER</h2>
+        <ul>
+            <li><input type="text" placeholder="아이디" title="아이디입력" name="id"></li>
+            <li><input type="password" placeholder="비밀번호" title="비밀번호입력" name="pw"></li>
+            <!-- <li><input type="checkbox" id="chk_id"><label for="chk_id">아이디저장</label></li> -->
+            <li><button type="button" onclick="login()">로그인</button></li>
+        </ul>
+        <div class="result"></div>
+    </section>
+
+    <script>
+        const resultBox = document.querySelector('.result');
+
+        function login() {
+            console.log('login post');
+            const form = document.forms['logIn'];
+            const data = {  
+                id : form.id.value,
+                pw : form.pw.value,
+            };
+            axios({
+                method: 'POST',
+                url: '/login',
+                data: data
+            }).then((res) => {
+                console.log('res',res);
+                resultBox.textContent = `${res.data.id}님 반갑습니다.`;
+                resultBox.style.color = 'green';
+            })
+        }
+    </script>
+</body>
+</html>
