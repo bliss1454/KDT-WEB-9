@@ -13,16 +13,13 @@ app.get('/',(req,res) => {
 });
 
 app.post('/login', (req,res) => {
-    console.log('back',req.body)
-    const id= 'bliss', pw = '1234'
-    if (id == req.body.id && pw == req.body.pw) {
-        console.log('로그인 성공');
-        
+    const id= 'bliss'; 
+    const pw = '1234';
+    if (id === req.body.id && pw === req.body.pw) {
+        res.send({ result: true, userInfo: req.body })
     } else {
-        console.log('로그인 실패');
+        res.send({ result: false, userInfo: null });
     }
-    res.send(req.body);
-    
 });
 
 app.listen(PORT,() => {

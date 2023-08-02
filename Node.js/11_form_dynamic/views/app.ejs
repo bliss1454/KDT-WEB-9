@@ -13,11 +13,12 @@
     </style>
 </head>
 <body>
+    <h1>POST 실습</h1>
     <form name="logIn">
         <h2>NAVER</h2>
         <ul>
-            <li><input type="text" placeholder="아이디" title="아이디입력" name="id"></li>
-            <li><input type="password" placeholder="비밀번호" title="비밀번호입력" name="pw"></li>
+            <li><input type="text" placeholder="아이디" title="아이디입력" name="id" required></li>
+            <li><input type="password" placeholder="비밀번호" title="비밀번호입력" name="pw" required></li>
             <!-- <li><input type="checkbox" id="chk_id"><label for="chk_id">아이디저장</label></li> -->
             <li><button type="button" onclick="login()">로그인</button></li>
         </ul>
@@ -38,10 +39,16 @@
                 method: 'POST',
                 url: '/login',
                 data: data
-            }).then((res) => {
+            }).then(res => {
                 console.log('res',res);
-                resultBox.textContent = `${res.data.id}님 반갑습니다.`;
-                resultBox.style.color = 'green';
+                const { result, userInfo } = res.data; //js에 만들어줬기 때문에 객체 구조 분해 할당.
+                if ( result ) {
+                    resultBox.textContent = `${userInfo.id}님 환영합니다.`;
+                    resultBox.style.color = 'green';
+                } else {
+                    resultBox.textContent = '아이디 또는 패스워드가 틀렸습니다.';
+                    resultBox.style.color = 'red';
+                }
             })
         }
     </script>
