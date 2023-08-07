@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+        <title>Document</title>
+    </head>
+    <body>
+        <h1>POST 실습</h1>
+        <form>
+            <label for="username">아이디</label>
+            <input type="text" id="username" required />
+            <br />
+            <label for="password">패쓰워드</label>
+            <input type="password" id="password" required />
+            <br />
+            <button type="button" onclick="login()">로그인</button>
+        </form>
+        <div class="result"></div>
+        <br />
+        <br />
+        <a href="/">홈으로 이동</a>
+        <script>
+            const resultBox = document.querySelector('.result');
+            function login() {
+                console.log('axios post');
+                const data = {
+                    username: document.querySelector('#username').value,
+                    password: document.querySelector('#password').value,
+                };
+                console.log(data);
+                axios({
+                    method: 'POST',
+                    url: '/resultPost',
+                    data,
+                }).then((res) => {
+                    console.log('res', res);
+                    const { result, userInfo } = res.data;
+                    if (result) {
+                        resultBox.textContent = `${userInfo.username}님 환영합니다.`;
+                        resultBox.style.color = 'blue';
+                    } else {
+                        resultBox.textContent = '아이디 또는 비밀번호가 틀렸습니다';
+                        resultBox.style.color = 'red';
+                    }
+                });
+            }
+        </script>
+    </body>
+</html>
