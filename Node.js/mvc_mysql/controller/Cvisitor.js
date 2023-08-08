@@ -5,5 +5,32 @@ exports.main = (req,res) => {
 };
 
 exports.getVisitors =(req,res) => {
-    res.render('visitor', {data:Visitor.getVisitors()});
+    // res.render('visitor', {data:Visitor.getVisitors()});
+    Visitor.getVisitors((rows)=> {
+        res.render('visitor', {data : rows});
+    });
+};
+
+exports.getVisitor = (req,res) => {
+    Visitor.getVisitor(req.query.id, (result) => {
+        res.render('visitor', {data : result});
+    })
+};
+
+exports.postVisitor = (req,res) => {
+    Visitor.postVisior(req.body, (result)=> {
+        res.send({id:result.insertId, name:req.body.name, comment: req.body.comment });
+    })
+};
+
+exports.patchVisitor = (req,res)=> {
+    Visitor.patchVisitor(req.body, () => {
+        res.send({result:true});
+    });
+};
+
+exports.deleteVisitor = (req,res) => {
+    Visitor.deleteVisitor(req.body, () => {
+        res.send({result:true});
+    });
 };

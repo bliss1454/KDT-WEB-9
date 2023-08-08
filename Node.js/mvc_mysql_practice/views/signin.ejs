@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>로그인</h1>
+    <form name="form_login">
+        <label for="userid">ID</label>
+        <input type="text" id="userid" /><br />
+        <label for="pw">PW</label>
+        <input type="password" id="pw" ><br />
+        <button type="button" onclick="logIn()">로그인</button>
+        </fieldset>
+    </form>
+    <form action="/user/profile" method="post" name="form_profile">
+        <input type="hidden" name="profile" />
+    </form>
+
+    <script>
+        function logIn() {
+            console.log('login')
+            const form = document.forms['form_login']
+            axios({
+                method:'POST',
+                url: '/signin',
+                data: {
+                    id : form.id.value,
+                    pw : form.pw.value,
+                },
+            }).then ( res => {
+                console.log('res',res);
+            });
+        };
+    </script>
+</body>
+</html>
