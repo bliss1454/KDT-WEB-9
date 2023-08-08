@@ -9,8 +9,8 @@ app.use(express.urlencoded({extended:true}));
 app.use(express.json());
 
 //router
-const userRouter = require('./routes/user');
-app.use('/user',userRouter);
+const router = require('./routes/user');
+app.use('/',router);
 
 //error페이지
 app.use('*', (req,res) => {

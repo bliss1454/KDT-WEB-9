@@ -1,6 +1,6 @@
 const express = require('express');
 const controller = require('../controller/Cuser');
-const userRouter = require('./routes/user');
+const router = express.Router()
 
 router.get('/', controller.index);
 //회원가입
