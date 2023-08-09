@@ -1,4 +1,5 @@
-const express = require('express');
+//const express = require('express');
+import express from 'express';
 const app = express();
 const PORT = 8000;
 
@@ -8,7 +9,8 @@ app.use(express.urlencoded({extended:true}));
 app.use(express.json());
 
 //router
-const userRouter = require('./routes/user');
+//const userRouter = require('./routes/user');
+import userRouter from './routes/user.js';
 app.use('/',userRouter);
 
 //error페이지

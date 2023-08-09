@@ -1,5 +1,7 @@
-const express = require('express');
-const controller = require('../controller/Cuser');
+// const express = require('express');
+// const controller = require('../controller/Cuser');
+import express from 'express'
+import * as controller from '../controller/Cuser.js'
 const router = express.Router()
 
 router.get('/', controller.index);
@@ -22,4 +24,5 @@ router.patch('/user/profile/edit', controller.edit_profile);
 //회원정보삭제
 router.delete('/user/profile/delete', controller.delete_profile);
 
-module.exports = router;
+export default router;
+//module.exports = router;
