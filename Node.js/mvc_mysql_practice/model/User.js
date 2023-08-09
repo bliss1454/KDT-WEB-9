@@ -18,8 +18,8 @@ conn.connect((err) => {
 exports.post_signup = (data, callback) => {
     const query = `INSERT INTO user (userid, pw, name) VALUES ('${data.userid}', '${data.pw}', '${data.name}')`;
     conn.query(query, (err, rows) => {
-        console.log('post_signup', rows);
-        callback();
+        console.log('post_signup', rows);  //rows에 담긴 내용을 같이 출력
+        callback(); //값을 넘겨줄때 사용함.
     });
 };
 
