@@ -4,15 +4,15 @@ const PORT = 8000;
 
 app.set('view engine', 'ejs');
 app.set('views', './views');
-app.use(express.urlencoded({extended:true}));
+app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 //router
 const userRouter = require('./routes/user');
-app.use('/',userRouter);
+app.use('/user', userRouter);
 
-//error페이지
-app.use('*', (req,res) => {
+//404
+app.use('*', (req, res) => {
     res.render('404');
 });
 
