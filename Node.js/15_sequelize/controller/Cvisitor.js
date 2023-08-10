@@ -10,8 +10,12 @@ exports.getVisitors =(req,res) => {
     //slect * from visitor과 같은 의미.
     models.Visitor.findAll().then(result => {
         console.log('fingAll',result);
+<<<<<<< HEAD
         //res.render('visitor', {data : result});  //view를 rendering하는 것. 그리고 ejs의 데이터를 가져오는 것.
         res.send({data: result});  //send는 데이터만 보내는 것.
+=======
+        res.render('visitor', {data : result});
+>>>>>>> 3625214b296458adbb195ec80e8a34f634506a37
     })
 };
 
