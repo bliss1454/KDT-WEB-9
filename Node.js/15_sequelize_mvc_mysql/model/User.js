@@ -3,9 +3,10 @@ const mysql = require('mysql');
 //mysql 연결
 const conn = mysql.createConnection({
     host: 'localhost',
-    user: 'username3',
+    user: 'news',
     password: '1234',
     database: 'kdt9',
+    port: 3306,
 });
 conn.connect((err) => {
     if (err) {
@@ -18,8 +19,8 @@ conn.connect((err) => {
 exports.post_signup = (data, callback) => {
     const query = `INSERT INTO user (userid, pw, name) VALUES ('${data.userid}', '${data.pw}', '${data.name}')`;
     conn.query(query, (err, rows) => {
-        console.log('post_signup', rows);  //rows에 담긴 내용을 같이 출력
-        callback(); //값을 넘겨줄때 사용함.
+        console.log('post_signup', rows);
+        callback();
     });
 };
 
