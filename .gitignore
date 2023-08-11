@@ -5,11 +5,9 @@
 /Node.js/mvc_mysql/node_modules
 /Node.js/mvc_mysql_practice/node_modules
 /Node.js/mvc_mysql_practice_new/node_modules
-<<<<<<< HEAD
 /Node.js/15_sequelize/node_modules
 /Node.js/mvc_mysql_practice_new2/node_modules
 /Node.js/15_sequelize_mvc_mysql/node_modules
 /Node.js/backend_project/node_modules
-=======
-/Node.js/15_sequelize/node_modules
->>>>>>> 3625214b296458adbb195ec80e8a34f634506a37
+/Node.js/16_join/node_modules
+/Node.js/17_cookie/node_modules
