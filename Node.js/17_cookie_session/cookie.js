@@ -6,7 +6,9 @@ const PORT = 8000;
 app.set('view engine', 'ejs')
 //cookie-parser
 //일반 쿠키
-app.use(cookieParser());
+//app.use(cookieParser());
+//암호화 쿠키
+app.use(cookieParser("asdfz"))
 //쿠키 옵션 객체
 const cookieConfig = {
     //httpOnly : 웹 서버를 통해서만 쿠키에 접근가능
@@ -31,7 +33,7 @@ app.get('/setCookie',(req,res) => {
     res.send('set cookie')
 });
 app.get('/getCookie',(req,res) => {
-    res.send(req.cookies)
+    res.send(req.signedCookies)
 });
 app.get('/clearCookie',(req,res) => {
     res.clearCookie('myCookie', 'myValue', cookieConfig)

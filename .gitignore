@@ -10,4 +10,7 @@
 /Node.js/15_sequelize_mvc_mysql/node_modules
 /Node.js/backend_project/node_modules
 /Node.js/16_join/node_modules
-/Node.js/17_cookie/node_modules
+/Node.js/17_cookie_session/node_modules
+/Node.js/17_cookie_practice/node_modules
+/Node.js/17_session_practice/node_modules
+.DS_Store
