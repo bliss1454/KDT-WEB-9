@@ -2,6 +2,8 @@ const express = require ('express');
 const crypto = require ('crypto');
 const app = express();
 const PORT = 8000;
+require('dotenv').config();
+
 let hash = '' //전역 변수 설정, hash가 위에 있기 때문에 비교할 수 없음으로 전역변수로 설정해줌.
 //let pass = '';  //const pass를 전역권으로 설정해준 것 //이의 밑줄을 환경변수설정에 설정해줌 //밑의 내용을 이렇게 전역으로 설정을 해줌.
 //const salt = crypto.randomBytes(16).toString('hex');  
@@ -14,6 +16,7 @@ let hash = '' //전역 변수 설정, hash가 위에 있기 때문에 비교할 
 //const key = 64; //생성할 키의 길이를 설정해 준 것
 //const algo = 'sha512'; //알고리즘을 설정해 준 것
 
+app.set('view engine', 'ejs'); //Error: No default engine was specified and no extension was provided.의 오류는 이부분이 없어서 나는 것.
 app.use(express.urlencoded({extended:true}));
 app.use(express.json());
 
@@ -48,25 +51,31 @@ app.use(express.json());
 
 //router
 app.get('/',(req,res) => {
+    //밑의 내용은 env파일 내용을 콘솔창에 입력하는 것
+    console.log(process.env.NAME);  //객체형태로 들어가 있기 때문에, ".객체명" 즉, .NAME으로 접근해준다. 그러면 콘솔창에 딱 .env에 작성한 이름값만 찍힌다.
+    console.log(process.env.NODE_ENV); //package.json에서 실행시키는 값.
+    console.log(process.env.NUM);
     res.render('index');
 });
 app.post('/hash', (req,res) => {
     const {pw} = req.body
     //const hash = createHashedPassword(pw) //리턴함수이기 때문에 밑의 코드에서 일을 하고나서 어떠한 값을 반환하는 것, 그 반환값을 여기서 받아온다.
-    hash = createPbkdf(pw); //hash를 이 지역에 사용하고 있으면 이 밑의 지역에서는 사용하지 못한다. 밑의 지역에서도 사용하게 하기 위해, const를 없애고 위에 전역설정을 해주었다.
+    //hash = createPbkdf(pw); //hash를 이 지역에 사용하고 있으면 이 밑의 지역에서는 사용하지 못한다. 밑의 지역에서도 사용하게 하기 위해, const를 없애고 위에 전역설정을 해주었다.
+    hash = bcryptPassword(pw); //위와 같이 전역에 설정을 해줬기 때문에, const를 붙이지 않았다.
     res.json({hash});
 });
 app.post('/varify', (req,res) => {
     const {pw} = req.body;
-    const cpmpare = verifyPassword(pw, salt, hash);
-    res.json({compare});
+    //const cpmpare = verifyPassword(pw, salt, hash);
+    const compare = comparePassword(pw, hash); //compare에 밑의 함수 comparePassword(pw, hash)의 내용들을 담아주고,
+    res.json({compare}); //res.json으로 compare값을 가져왔다.
 });
-app.post('/cipher', (req,res) => {
+app.post('/cipher', (req,res) => {  //post에서 확인하는 것이다. /사이트주소 그리고 그 내용을 확인작업
     const {data} = req.body;  //data에 내용을 담아옴
     const encrypt = cipherEncrypt(data); //encrypt라는 변수에 밑의 cipherEncrypt(data)함수의 데이터값이 들어갈 것이다.
     console.log('encrypt', encrypt); //내용을 콘솔로그로 확인하기
     const decrypt = decipher(encrypt); //콘솔로그로 확인하고 바로 다시 복호화작업으로 들어가는 것.
-    res.json({decrypt});
+    res.json({decrypt}); //넣은 데이터값이 암호화 작업을 거치고 그다음 복호화 작업을 거쳐서 해독된 내용이 json창에 뜬다.
 })
 
 app.listen(PORT, () => {
@@ -85,7 +94,8 @@ const createHashedPassword = (password) => {    //암호화할 값이 password�
 const salt = crypto.randomBytes(16).toString('base64') //솔트생성
 const iterations = 100 //반복횟수
 const keylen = 64 //생성할 키의 길이
-const digest = 'sha512' //해시 알고리즘
+//const digest = 'sha512' //해시 알고리즘
+const digest = process.env.HASH //.env에 내용을 넣어주면 이런식으로 변수처리를 하는 것임을 보여주는 것.
 
 //단방향 암호화 생성
 const createPbkdf = (password) => {
@@ -123,4 +133,20 @@ const decipher = (encryptedData) => {    //암호화한 데이터를 복호화�
     let decryptedData = decipher.update(encryptedData, 'base64', 'utf-8'); //복호화할 데이터를 넣어야하기 때문에 word가 아닌 encryptedData이 온다.
     decryptedData += decipher.final('utf-8');
     return decryptedData;
-}
+};
+
+////bcrypt단방향
+const bcrypt = require ('bcrypt');
+//이친구는 딱 하나만 있으면 된다. 바로, salt값 하나만 있으면 된다.
+const saltNumber = 10;
+//암호화
+const bcryptPassword = (password) => {
+    return bcrypt.hashSync(password, saltNumber); //hash라는 함수자체가 비동기임. 비동기처리를 안할거기때문에(동기화처리를 할거임) Sync를 붙여준다.
+};
+//비교
+const comparePassword = (password, dbPassword) => {    //비교니까 두개의 값을 가져와야한다.
+    return bcrypt.compareSync(password, dbPassword);
+};
+
+////환경변수 설정
+//dotenv 파일을 읽기위해 설치, cross-env
