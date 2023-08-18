@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+        <title>Document</title>
+    </head>
+    <body>
+        <h1>SignUp</h1>
+        <form name="form-signup">
+            <label for="id">userid</label>
+            <input type="text" id="id" /><br />
+            <label for="pw">password</label>
+            <input type="password" id="pw" /><br />
+            <label for="name">name</label>
+            <input type="text" id="name" /><br />
+            <button type="button" onclick="signup()">회원가입</button>
+        </form>
+        <script>
+            async function signup() {
+            const form = document.forms['form-signup'];
+        
+            try {
+                const response = await axios({
+                    method: 'POST',
+                    url: '/signup',
+                    data: {
+                        id: form.id.value,
+                        pw: form.pw.value,
+                        name: form.name.value,
+                    },
+                });
+
+                console.log('res', response);
+
+                if (response.data.result) {
+                    alert('회원가입을 축하합니다');
+                    window.location.href = '/signin';
+                } } catch (error) {
+                    console.error('Error:', error);
+                    // Handle error cases here
+                    }
+            }
+        </script>
+    </body>
+</html>
