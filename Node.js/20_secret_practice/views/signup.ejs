@@ -8,9 +8,12 @@
     </head>
     <body>
         <h1>SignUp</h1>
-        <form name="form-signup">
-            <label for="id">userid</label>
-            <input type="text" id="id" /><br />
+        <!--동적폼은 입력하는 순간, 백엔드로 바로 넘어간다(동기식 : 보내고 바로 끝나버린다)
+        비동기폼은 보내는 순간 백엔드(서버)와 대화를 한다. 이 사람이 맞는지 아닌지 확인한다.(즉, 비동기폼을 만들어야한다.)-->
+        <!--이폼은 동적폼이다. 그리고 밑의 스크립트의 방식을 통해 비동기처리를 해주는건가?-->
+        <form name="form-signup">  <!--form name과 onclick의 이름이 같으면 안된다.-->
+            <label for="userid">id</label>
+            <input type="text" id="userid" /><br />
             <label for="pw">password</label>
             <input type="password" id="pw" /><br />
             <label for="name">name</label>
@@ -26,7 +29,7 @@
                     method: 'POST',
                     url: '/signup',
                     data: {
-                        id: form.id.value,
+                        userid: form.userid.value,
                         pw: form.pw.value,
                         name: form.name.value,
                     },

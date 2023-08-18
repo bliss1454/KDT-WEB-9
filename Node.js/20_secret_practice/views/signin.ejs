@@ -9,8 +9,8 @@
     <body>
         <h1>SignIn</h1>
         <form name="form-signin">
-            <label for="id">ID</label>
-            <input type="text" id="id" /><br />
+            <label for="userid">ID</label>
+            <input type="text" id="userid" /><br />
             <label for="pw">PW</label>
             <input type="password" id="pw" /><br />
             <button type="button" onclick="signin()">로그인</button>
@@ -20,11 +20,11 @@
                 const form = document.forms['form-signin'];
 
                 try {
-                    const response = await axios({
+                    const response = await axios({   //비동기처리할 부분에 await처리하는 것.
                         method: 'POST',
                         url: '/signin',
                         data: {
-                            id: form.id.value,
+                            userid: form.userid.value,
                             pw: form.pw.value,
                         },
                     });
