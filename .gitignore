@@ -15,3 +15,7 @@
 /Node.js/17_session_practice/node_modules
 .DS_Store
 /Node.js/20_secret/node_modules
+/Node.js/20_secret/.env
+/Node.js/20_secret_practice/node_modules
+*node_modules
+*.env

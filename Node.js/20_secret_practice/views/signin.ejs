@@ -7,37 +7,33 @@
         <title>Document</title>
     </head>
     <body>
-        <h1>SignIn</h1>
-        <form name="form-signin">
-            <label for="userid">ID</label>
-            <input type="text" id="userid" /><br />
-            <label for="pw">PW</label>
-            <input type="password" id="pw" /><br />
-            <button type="button" onclick="signin()">로그인</button>
+        <form name="login">
+            <input type="text" id="id" placeholder="ID" /><br />
+            <input type="password" id="pw" placeholder="PW" /><br />
+            <button type="button" onclick="loginFunc()">로그인</button>
         </form>
+
         <script>
-            async function signin() {
-                const form = document.forms['form-signin'];
-
-                try {
-                    const response = await axios({   //비동기처리할 부분에 await처리하는 것.
-                        method: 'POST',
-                        url: '/signin',
-                        data: {
-                            userid: form.userid.value,
-                            pw: form.pw.value,
-                        },
-                    });
-
-                    console.log('res', response);
-
-                    if (response.data.result) {
-                        alert('로그인 성공');
-                    } else {
-                        form.reset();
-                    }
-                    } catch (error) {
-                    console.error('Error:', error);
+            async function loginFunc() {
+                const data = {
+                    userid: document.querySelector('#id').value,
+                    pw: document.querySelector('#pw').value,
+                    //이 dom에서 아이디값이 각각 id,pw인 userid와 pw을 data에 담는다.
+                };
+                const result = await axios({
+                    //result라는 변수에 axios방식으로 data을 담아서 post요청을 보낸다. login의 라우터 즉 컨트롤러로 보내고, 해당 결과를 받아 오기를 기다린다. 그 결과는 result라는 변수 안에 담길거다.
+                    method: 'POST',
+                    url: '/signin',
+                    data,
+                });
+                if (!result.data.result) {
+                    //!은 false의 뜻을 가진다.
+                    //받아온 결과 값이 false일때, 해당 메세지를 띄워주라(메세지는 컨트롤러에 작성해주었다).
+                    alert(result.data.message);
+                } else {
+                    //받아온 결과 값이 true이면, alert로 메세지를 띄워주고, 메인페이지로 이동한다.
+                    alert('회원가입을 축하드립니다');
+                    document.location.href = '/';
                 }
             }
         </script>
