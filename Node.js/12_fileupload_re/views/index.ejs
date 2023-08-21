@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+        <title>Document</title>
+    </head>
+    <body>
+        <!-- <h1>single 연습</h1>
+        <form action="/upload" method="post" enctype="multipart/form-data">
+            <input type="file" name="userfile" /><br />
+            <input type="text" name="title" /><br />
+            <button type="submit">upload</button>            
+        </form> -->
+
+        <!-- <h1>멀티 연습(ver1) : 한번에 여러개 업로드</h1>
+        <form action="/upload/array" method="post" enctype="multipart/form-data">
+            <input type="file" name="userfiles" multiple /><br />  
+            /* 한번에 여러개이기 때문에 multiple을 넣어주면 된다. */
+            <input type="text" name="tile" /><br />
+            <button type="submit">upload</button>
+        </form> -->
+
+        <!-- <h1>멀티 연습(ver2) : 여러개의 요청</h1>
+        <form action="/upload/fields" method="post" enctype="multipart/form-data">
+            <input type="file" name="userfile1" multiple/><br /> 
+            <input type="text" name="title1" /><br />
+            <input type="file" name="userfile2" /><br /> 
+            <input type="text" name="title2" /><br />
+            <button type="submit">upload</button>
+        </form> -->
+
+        <h1>동적 파일 업로드</h1>
+        <form onsubmit="fileupload(event)" >
+            <input type="file" id="dynamic" /><br/>
+            <input type="text" id="title" /><br />
+            <button type="submit">upload</button>
+        </form>
+        <br/>
+        <div class="result"></div>
+        <script>
+            const resultBox = document.querySelector('.result');
+            async function fileupload(event) {
+                event.preventDefault(); //기본 제출 동작을 막아줌.(페이지가 넘어가지 않도록 설정해주는 것)
+                console.log('file upload');
+                const title = document.querySelector('#title').value;
+                //파일에 접근하기 위해서 file.files를 사용하는 것이고, file.files는 배열을 반환하며 원하는 것은 첫번째 파일이기 때문에 file.files[0]을 사용하는 것이다.
+                const file = document.querySelector('#dynamic');
+                console.log(file.files[0]);
+
+                //데이터 값만 담아온 것이기 때문에 multer에 보내기 위해서 위의 데이터들을 FormData에 담아서 넘겨준다. FormData : 자바스크립트 내장객체이고 폼 데이터를 생성시켜 준다.
+                const formdata = new FormData()
+                //append(key, value)
+                //!중요! file은 항상 제일 마지막에 선언. multer가 위에부터 읽어오는데 file을 읽어버리면 종료시켜버리기 때문에, 제일 마지막에 file을 넣어준다.
+                formdata.append('title', title);
+                formdata.append('dynamic',file.files[0]);
+
+                const res = await axios({ //비동기처리 해야하는 부분에 await을 넣어준다.
+                    method: 'POST',
+                    url: '/dynamic',
+                    data: formdata,
+                    headers: {
+                        'Content-Type' : 'multipart/form-data', //header을 꼭 적어주기.
+                    },
+                });
+                console.log('res',res);
+                resultBox.innerHTML = `<img src=${res.data.path}>`;
+            }
+        </script>
+    </body>
+</html>
