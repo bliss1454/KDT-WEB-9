@@ -28,7 +28,7 @@
                 `;
                 } else {
                     const res = await axios({
-                        //get방식으로 /token을 받아온다. 그리고 headers에 authorization의 헤어로 토큰값을 담아와준다.
+                        //get방식으로 /token을 받아온다. 그리고 headers에 authorization의 헤더로 토큰값을 담아와준다.
                         method: 'GET',
                         url: '/token',
                         headers: {
