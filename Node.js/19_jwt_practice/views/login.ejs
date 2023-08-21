@@ -15,6 +15,9 @@
         </form>
 
         <script>
+            // form에 login-form이라는 이름을 가진 폼을 담아주고, res에 post방식으로 /login으로 해당 id와 pw의 data를 담아서 보내준다.
+            // 결과가 true이면 웹 브라우저의 로컬 저장소에 setItem으로 해당 결과의 토큰값을 담아주고, 메인페이지로 이동한다.
+            // 결과가 false이면 설정해준 메세지를 띄워주고, reload한다. 
             async function login() {
                 console.log('login');
                 const form = document.forms['login-form'];
@@ -29,6 +32,7 @@
                 console.log('res', res.data);
                 if (res.data.result) {
                     localStorage.setItem('login', res.data.token);
+                    //웹 브라우저의 로컬 스토리지(Local Storage)에 'login'이라는 키(key)에 해당 결과의 토큰 값을 저장한다.
                     document.location.href = '/';
                 } else {
                     alert(res.data.message);

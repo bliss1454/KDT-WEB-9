@@ -9,13 +9,18 @@
     <body>
         <h1>JWT 실습</h1>
         <div id="button"></div>
+        
+        <!--웹 브라우저의 로컬 스토리지에 토큰값 가져온 방식-->
 
         <script>
             (async function () {
                 const token = localStorage.getItem('login');
+                //웹 브라우저의 로컬 스토리지에서 'login' 키를 사용하여 저장된 토큰을 가져온다. 이 토큰은 사용자의 로그인 상태를 나타낸다.
                 const button = document.querySelector('#button');
+                //HTML에서 'button' id를 가진 요소를 찾아서 button 변수에 할당한다.
                 console.log(token);
                 let data = '';
+                //data 변수를 선언하고 빈 문자열로 초기화한다. 이 변수는 후에 버튼 내용을 저장하는 데 사용된다.
                 if (!token) {
                     data = `
                 <a href="/signup">회원가입</a>
@@ -23,25 +28,34 @@
                 `;
                 } else {
                     const res = await axios({
+                        //get방식으로 /token을 받아온다. 그리고 headers에 authorization의 헤어로 토큰값을 담아와준다.
                         method: 'GET',
                         url: '/token',
                         headers: {
                             Authorization: `Bearer ${token}`,
+                            //"Bearer" 키워드는 HTTP 인증 헤더에서 토큰의 타입을 명시하는 데 사용된다. 
+                            //"Bearer" 다음에 오는 값은 실제로 토큰 값 자체이다. 이렇게 하는 이유는 클라이언트가 서버에게 전송하는 것이 토큰이라고 알려주기 위해서이다. 
+                            //따라서 "Authorization" 헤더의 값으로 "Bearer [토큰값]" 형식을 사용하면 서버는 해당 헤더에서 토큰을 추출하고, 이 토큰을 사용자 인증 및 권한 부여에 사용할 수 있다.
                         },
                     });
                     console.log('res', res.data);
                     if (res.data.result) {
+                        //토큰을 잘 받아오면 해당 내용을 data에 담아서 innerHTML로 표시해준다.
                         data = `<p>${res.data.name}님 환영합니다.</p>
                         <button type='button' onclick='logout()'>로그아웃</button>
                         `;
                     }
+                    //1. 토큰의 유무를 확인하여 로그인 상태에 따라 다른 내용을 data 변수에 설정한다. 
+                    //2. 만약 토큰이 없다면, 회원가입과 로그인 링크를 data에 추가한다. 그렇지 않으면, 서버에 토큰을 보내어 인증하고, 로그인 상태에 따라 환영 메시지와 로그아웃 버튼을 data에 추가한다.
                 }
                 button.innerHTML = data;
+                //data 변수에 저장된 내용을 'button' 요소의 HTML 내용으로 설정한다. 이로써 버튼 내용이 변경되고, 로그인 상태에 따라 다른 버튼이 표시된다.
             })();
 
             function logout() {
                 localStorage.clear();
                 document.location.href = '/';
+                //로그아웃 기능을 처리한다. 이 함수는 로컬 스토리지를 지우고, 페이지를 다시 불러와서 로그아웃 상태로 되돌아간다.
             }
         </script>
     </body>
