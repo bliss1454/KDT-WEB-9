@@ -5,7 +5,7 @@
 //이것은 일반적으로 Node.js 애플리케이션에서 Sequelize를 사용하여 데이터베이스와 상호 작용하는 방법을 설정하는 초기화 코드입니다.
 
 const Sequelize = require('sequelize');
-//equelize 라이브러리를 불러옵니다. Sequelize는 Node.js에서 데이터베이스와 상호 작용을 쉽게 할 수 있게 해주는 ORM(Object-Relational Mapping) 라이브러리입니다.
+//sequelize 라이브러리를 불러옵니다. Sequelize는 Node.js에서 데이터베이스와 상호 작용을 쉽게 할 수 있게 해주는 ORM(Object-Relational Mapping) 라이브러리입니다.
 //ORM은 개발자가 데이터베이스를 객체로 다룰 수 있게 해주며 데이터베이스와의 상호 작용을 추상화합니다.
 //ORM은 간단한 쿼리와 데이터 조작을 더 쉽게 만들어줌으로써 개발 생산성을 향상시키고 오류를 줄이는 데 도움이 됩니다.
 
