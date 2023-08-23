@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+        <title>Document</title>
+    </head>
+    <body>
+        <form name="gest-form">
+            <fieldset>
+                <legend>회원 정보 추가</legend>
+                <input type="text" id="id" placeholder="id"><br />
+                <input type="text" id="name" placeholder="사용자 이름"><br />
+                <input type="text" id="gender" placeholder="사용자 성별"><br />
+                <input type="text" id="major" placeholder="사용자 전공"><br />
+                <button type="button" onclick="gestAppend()">등록</button>
+            </fieldset>
+        </form>
+        <br />
+        <table border="1" cellspacing="0">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>이름</th>
+                    <th>성별</th>
+                    <th>전공</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% for(let i=0; i< data.length; i++) { %>
+                    <tr id="tr_<%= data[i].id %>">
+                        <td><%= data[i].id %></td>
+                        <td><%= data[i].name %></td>
+                        <td><%= data[i].gender %></td>
+                        <td><%= data[i].major %></td>
+                    </tr>
+                <% } %>
+            </tbody>
+        </table>
+
+        <script>
+            function gestAppend() {
+                const body = document.querySelector('tbody');
+                const form = document.forms['gest-form']
+                const html = `<tr><td>${form.id.value}</td><td>${form.name.value}</td><td>${form.gender.value}</td><td>${form.major.value}</td></tr>`
+                    body.insertAdjacentHTML('beforeend',html)  //tbody안에서 가장 마지막 요소에 추가된다는 뜻
+                };
+        </script>
+    </body>
+</html>
