@@ -1,0 +1,16 @@
+{
+    "development": {
+        "username": "username3",
+        "password": "Love2026@@",
+        "database": "kdt9",
+        "host": "127.0.0.1",
+        "dialect": "mysql"
+    },
+    "test": {
+        "username": "root",
+        "password": "Love2026@@",
+        "database": "kdt9",
+        "host": "127.0.0.1",
+        "dialect": "mysql"
+    }
+}
