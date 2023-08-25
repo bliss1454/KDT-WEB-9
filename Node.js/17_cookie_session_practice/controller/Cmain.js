@@ -15,8 +15,8 @@ const main = (req, res) => {
     //쿠키 사용
     //요청(req)받는 거이기 때문에, req이다.
    //console.log('cookie', req.cookies)
-   console.log(req.cookies.islogin)
-   if(req.cookie.islogin) {
+   console.log(req.cookies)
+   if(req.cookie) {
     //쿠키가 존재한다면 로그인 되어있는 상태이다.
     res.render('index', {cookie: true})
    } else {
