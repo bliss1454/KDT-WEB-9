@@ -11,4 +11,13 @@
         <a href="/signin">로그인페이지</a>
         <a href="/signup">회원가입페이지</a>
     </body>
+
+    <script>
+        //ejs에서 변수값 사용하기 위해서는 문자열 처리를 해줘야함.
+        //controller에 설정한 쿠키값을 가져와서 내용을 처리함.
+        console.log('<%= cookie %>'); //cookie값을 이렇게 사용가능함. ejs는 문자열로 밖에 못받음
+        if ('<%= cookie %>' === 'false') {
+            alert('로그인해주세요')
+        }
+    </script>
 </html>

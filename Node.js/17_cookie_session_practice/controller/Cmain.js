@@ -15,13 +15,20 @@ const main = (req, res) => {
     //쿠키 사용
     //요청(req)받는 거이기 때문에, req이다.
    //console.log('cookie', req.cookies)
-    res.render('index');
+   console.log(req.cookies.islogin)
+   if(req.cookie.islogin) {
+    //쿠키가 존재한다면 로그인 되어있는 상태이다.
+    res.render('index', {cookie: true})
+   } else {
+    //쿠키가 없으면 비로그인 상태 => alret창 띄우기
+    res.render('index', {cookie: false});
+}
 };
 //회원가입페이지
 const signup = (req, res) => {
     //쿠키 생성 (서버가 클라이언트가 하는걸 응답(res)해 주는 거다.)
     //res.cookie(쿠키이름, 쿠키값, 옵션객체)
-    res.cookie('testCookie', 'signup', cookieConfig );
+    //res.cookie('testCookie', 'signup', cookieConfig );
     res.render('signup');
 };
 //로그인페이지
@@ -70,10 +77,21 @@ const post_signin = (req, res) => {
     })
 };
 
+const members = (req,res) => {
+    if( req.session.result.name) { 
+        result.findAll().then( (result) => {
+        res.render('members', {name: res.session.result.name , result})
+    });
+    } else {
+        res.redirect('/signin')
+    }
+}
+
 module.exports = {
     main,
     signup,
     signin,
+    members,
     profile,
     post_signup,
     post_signin,

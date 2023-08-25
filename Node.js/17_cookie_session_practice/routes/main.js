@@ -10,7 +10,7 @@ router.post('/signup', controller.post_signup); //데이터베이스에 회원�
 router.get('/signin', controller.signin); //로그인 페이지 열기
 router.post('/signin', controller.post_signin); //로그인하기
 
-//회원정보조회 =>GET
-router.get('/profile', controller.profile);
+//전체회원정보조회 =>GET
+router.get('/members', controller.members);
 
 module.exports = router;
