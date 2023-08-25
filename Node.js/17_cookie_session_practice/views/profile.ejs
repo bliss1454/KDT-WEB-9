@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+        <title>Document</title>
+    </head>
+    <body>
+        <h1><%= data.name %>님 프로필 정보</h1>
+        <form name="edit-profile">
+            <input type="text" id="userid" value="<%= data.userid %>" readonly /><br />
+            <input type="text" id="name" value="<%= data.name %>" /><br />
+            <input type="password" id="pw" value="" placeholder="PW" /><br />
+            <input type="hidden" id="id" value="<%= data.id %>" /><br />
+        </form>
+        <table border="1" cellspacing="0">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>이름</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% for(let i=0; i< data.length; i++) { %>
+                    <tr id="tr_<%= data[i].id %>">
+                        <td><%= data[i].id %></td>
+                        <td><%= data[i].name %></td>
+                    </tr>
+                <% } %>
+            </tbody>
+        </table>
+    </body>
+</html>
