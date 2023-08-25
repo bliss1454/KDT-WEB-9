@@ -1,4 +1,4 @@
-const model = require('../model/Model');
+//const model = require('../model/Model');
 const { User } = require('../models');
 const bcrypt = require("bcrypt");
 
@@ -14,7 +14,7 @@ const cookieConfig = {
 const main = (req, res) => {
     //쿠키 사용
     //요청(req)받는 거이기 때문에, req이다.
-    console.log('cookie', req.cookies)
+   //console.log('cookie', req.cookies)
     res.render('index');
 };
 //회원가입페이지
@@ -30,7 +30,7 @@ const signin = (req, res) => {
         res.redirect('/profile')
     } else {
     res.render('signin');
-};
+}};
 //회원정보 조회 페이지
 const profile = (req, res) => {
     console.log(req.params);
@@ -58,7 +58,7 @@ const post_signin = (req, res) => {
         const isVerify = compareHash(pw, result.pw);
         if(isVerify){
             //세션 생성
-            req.session.userInfo = {name:User.name, id: User.id}
+            req.session.userInfo = {name:result.name, id: result.id}
             res.json({ result: true, data: result.dataValues });
         }
         else{
@@ -85,4 +85,4 @@ const createHash = (password)=>{
 
 const compareHash = (password, dbPassword)=> {
     return bcrypt.compareSync(password, dbPassword);
-}};
+};
