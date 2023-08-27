@@ -22,7 +22,7 @@ const main = (req, res) => {
         //쿠키가 존재한다면 로그인 되어있는상태
         res.render('index', { cookie: true });
     } else {
-        //쿠키가 없으면 비로그인 => alert창 띄우기
+        //쿠키가 없으면 비로그인 => alert창 띄우기 (창의 내용은 view에 index.ejs에 적어놓는다.)
         res.render('index', { cookie: false });
     }
 };
@@ -61,7 +61,10 @@ const profile = (req, res) => {
 const buy = (req, res) => {};
 //전체회원조회
 const members = (req, res) => {
-    if (req.session.userInfo) {
+    if (req.session.userInfo) { 
+        //이 부분은 Express.js의 세션 (session)을 사용하여 사용자 정보를 확인하는 조건문이다. 
+        //세션은 사용자의 브라우저 세션을 추적하고 정보를 저장하기 위한 메커니즘을 제공한다. 
+        //req.session.userInfo가 존재하면 사용자가 로그인되어 있는 것으로 간주한다.
         User.findAll().then((result) => {
             res.render('members', { name: req.session.userInfo.name, result });
         });
@@ -110,9 +113,15 @@ const post_signin = async (req, res) => {
             // req.session.userInfo = {name: user.name, id: user.id };
             //JWT 생성
             const token = jwt.sign({ name: user.name, id: user.id }, SECRET);
+            //JWT에는 사용자의 이름(name)과 ID(id) 정보가 포함된다. 이 정보는 클라이언트 측에서 로그인 상태를 나타내는 데 사용될 수 있다.
             res.cookie('isLogin', true);
+            //isLogin이라는 쿠키를 생성하고 클라이언트에게 전달한다. 이 쿠키는 클라이언트에게 현재 로그인 상태를 나타내는 데 사용된다. true 값은 로그인이 성공했음을 나타낸다.
             res.cookie('aToken', token);
+            //aToken이라는 쿠키를 생성하고 클라이언트에게 전달한다. 이 쿠키에는 JWT 토큰이 포함된다. 
             res.json({ result: true, data: user, token });
+            //이 부분은 로그인이 성공했을 때 클라이언트에게 응답을 보낸다. 
+            //응답은 result: true (로그인 성공), 사용자 정보(data: user), 그리고 JWT 토큰(token)을 포함한다. 
+            //클라이언트는 이 정보를 사용하여 로그인 상태를 유지하고, 필요한 경우 서버에 인증 헤더로 JWT 토큰을 전송하여 보안 접근을 얻을 수 있다.
         } else {
             res.json({ result: false, message: '비밀번호가 틀렸습니다.' });
         }
@@ -132,11 +141,15 @@ const edit_profile = async (req, res) => {
     console.log(req.headers);
     //split() ()안의 문자를 기준으로 문자열을 잘라내기한 후 배열을 반환
     const [bearer, token] = req.headers.authorization.split(' ');
+    //HTTP 요청 헤더에서 Authorization 헤더를 가져와서 Bearer 토큰과 실제 JWT 토큰을 추출한다. 
     if (bearer === 'Bearer') {
+        //이 부분은 Authorization 헤더가 Bearer 형식인지 확인한다. Bearer 형식은 JWT 토큰을 포함하는 표준 방식이다.
         try {
+            //JWT 토큰의 유효성을 검사한다. jwt.verify() 함수를 사용하여 토큰을 검사하고, 유효한 토큰인 경우에만 편집 작업을 수행한다.
             const result = jwt.verify(token, SECRET);
             console.log(result);
             const returnValue = await User.findOne({ where: { id: result.id } });
+            //새로운 암호를 암호화 하는 작업.
             if (returnValue) {
                 const hash = await bcryptPassword(pw);
                 //update ( 수정될 정보를 객체형태로 입력, 수정될 곳 객체 입력 )

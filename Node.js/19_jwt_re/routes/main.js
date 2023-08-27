@@ -12,7 +12,8 @@ router.post('/signin', controller.post_signin); //로그인하기
 
 //회원정보수정 기능
 //회원정보조회 =>GET
-//GET 조회 방식이때는 url을 query string 또는 파라미터 방식으로 지정
+//GET 조회 방식이때는 url을 query string(물음표(?)형식) 또는 파라미터 방식으로 지정
+//(쿼리 파라미터는 key=value 형태로 표현되며, 여러 개의 파라미터는 &로 구분됩니다.쿼리 파라미터는 key=value 형태로 표현되며, 여러 개의 파라미터는 &로 구분된다.)
 //query string방식은 페이지 이동을 안하며 파라미터는 페이지를 이동(res.render)
 router.get('/profile/:number', controller.profile);
 //회원정보수정 =>PATCH
