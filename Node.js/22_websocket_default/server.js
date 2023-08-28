@@ -14,17 +14,35 @@ const server = app.listen(PORT, () => {
 });
 
 //투표결과 초기화 변수
-const votes = {
-    typeOne: 0,
-    typeTwo: 0,
-};
+// const votes = {
+//     typeOne: 0,
+//     typeTwo: 0,
+// };
 
 //웹소켓 서버 접속
 const wss = new ws.Server({ server });
 
 //socket변수는 접속한 브라우저
 wss.on('connection', (socket) => {
-    socket.on('message', (message) => {});
+    socket.on('message', (message) => {
+        function handleVoteMessage(message) {
+            if (message === 'typeOne') {
+                votes.typeOne += 1;
+            } else if (message === 'typeTwo') {
+                votes.typeTwo += 1;
+            }
+        
+            // 업데이트된 투표 결과를 모든 클라이언트로 전송
+            wss.clients.forEach((client) => {
+                if (client.readyState === ws.OPEN) {
+                    client.send(JSON.stringify(votes));
+                }
+            });
+        }
+        socket.on('message', (message) => {
+            handleVoteMessage(message);
+        });
+    });
     //오류이벤트
     socket.on('error', (err) => {
         console.log('에러가 발생하였습니다', err);
@@ -34,3 +52,5 @@ wss.on('connection', (socket) => {
         console.log('클라이언트와 연결이 종료됨');
     });
 });
+
+
