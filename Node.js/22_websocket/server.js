@@ -40,7 +40,7 @@ wss.on('connection', (socket) => {
         //ws.CLOSING : 2 웹소켓이 닫히는 중
         //ws.CLOSED : 3 웹소켓이 닫힌 상태
         //socket.readyState : 웹소켓의 클라이언트 상태를 나타내는 속성
-        console.log(ws.OPEN);
+        console.log(ws.OPEN); /////test
         sockets.forEach(elem => {
             console.log(elem.readyState);
             elem.send(`${readmessage}`); 
