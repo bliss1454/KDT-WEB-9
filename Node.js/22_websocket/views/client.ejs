@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ul></ul>
+    <form id="chat">
+        <input type="text" id="name" placeholder="이름" /> <br />
+        <input type="text" id="message" placeholder="채팅내용" /> <br />
+        <button>채팅</button>
+    </form>
+
+    <script>
+        ///////socket 이벤트/////////////
+        const socket = new WebSocket('ws://localhost:8000');
+        //form 선택하기(가져오기)('document.querySelector' 이용)
+        const chatForm = document.querySelector('#chat'); 
+        const message = chatForm.querySelector('#message').value;
+        const name = chatForm.querySelector('#name').value;
+
+        //ul 가져오기
+        const ul= document.querySelector('ul');
+
+        //서버에 연결요청 (자바스크립트에서 이벤트 설정은 addEventListener)
+        socket.addEventListener('open', (event) => {
+            socket.send('Hello Server'); //send함수는 백엔드로 메세지를 보내주는 것이다.
+            console.log('서버에 연결되었습니다');
+        });
+
+        //클라이언트에서도 메세지를 주고 받을 수 있다.
+        //메세지 주고받음
+        // socket.addEventListener('message', (event) => {
+        //     //console.log(event);
+        //     //console.log(`서버로 부터 받은 메세지 : ${event.data}`) //data라는 객체 안에서 찾으면 된다. 
+        //     //밑에 작성해준 코드를 통해 백엔드로 갔던 내용이 여기로 온다. 그리고 그 메세지를 브라우저에 나타내주기 위해 append해준다.
+        //     const li = document.createElement('li'); //여기서 li은 list를 의미한다. li태그를 생성해주고
+        //     li.textContent = event.data; //li태그 안에 event.data내용을 담아준다.
+        //     ul.append(li); //그리고 ul태그에 li로 내용을 출력해준다.
+        // });
+        //////실습///////
+        socket.addEventListener('message', (event) => {
+        const messageObject = JSON.parse(event.data); // 받은 JSON 문자열을 객체로 파싱
+        console.log(event.data)
+        // 새로운 메시지를 표시할 li 엘리먼트 생성
+        const li = document.createElement('li');
+        // 메시지를 브라우저에 출력
+        li.textContent = `${messageObject.name}: ${messageObject.message}`;
+        // ul 엘리먼트에 li 엘리먼트 추가
+        ul.appendChild(li);
+        });
+        
+        //오류 이벤트
+        socket.addEventListener('error', (event) => {
+            console.log('오류가 발생하였습니다', event.error)
+        });
+
+        //종료 이벤트
+        socket.addEventListener('close', () => {
+            console.log('서버와 연결이 종료되었습니다')
+        });
+
+        ////////form 이벤트///////////////
+        chatForm.addEventListener('submit', (event) => {
+            event.preventDefault(); //전송안되게 막는다
+            //const msg = chatForm.querySelector('#message'); //document라고 해도 상관없다. 그리고 msg는 message를 축약으로 써준 것이다.
+            //const name = nameForm.querySelector('#name');
+            /////실습//////
+            const messageObject = {
+                name: chatForm.querySelector('#name').value,
+                message: chatForm.querySelector('#message').value 
+                };
+            socket.send(JSON.stringify(messageObject)); //=socket.send(JSON.stringify({user: name.value, message: message.value}))
+            //socket.send(msg.value); //백엔드로 해당 내용을 보내준다.
+            //msg.value = '' //전송되면서 원래 입력된 값은 지워진다.
+            // chatForm.querySelector('#message').value = '';
+            // nameForm.querySelector('#name').value = '';
+        });
+    </script>
+</body>
+</html>
