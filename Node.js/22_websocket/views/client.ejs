@@ -42,7 +42,7 @@
         // });
         //////실습///////
         socket.addEventListener('message', (event) => {
-        const messageObject = JSON.parse(event.data); // 받은 JSON 문자열을 객체로 파싱
+        const messageObject = JSON.parse(event.data); // 받은 JSON 문자열을 객체로 파싱 (리더님은 server.js에 작성하셨다, 역직렬화과정이다)
         console.log(event.data)
         // 새로운 메시지를 표시할 li 엘리먼트 생성
         const li = document.createElement('li');
