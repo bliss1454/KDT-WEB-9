@@ -32,7 +32,17 @@ wss.on('connection', (socket) => {
     //이벤트는 'on'이다
     //메세지 이벤트
     socket.on('message', (readmessage) => { //클라이언트에서 보낸 내용을 여기서 받는거다
+        console.log(wss.clients);
+        console.log('클라이언트가 연결되었습니다');
+        //클라이언트 상태확인
+        //ws.CONNECTIONG : 0 웹소켓이 연결 시도 중
+        //ws.OPEN : 1 웹소켓이 열린 상태
+        //ws.CLOSING : 2 웹소켓이 닫히는 중
+        //ws.CLOSED : 3 웹소켓이 닫힌 상태
+        //socket.readyState : 웹소켓의 클라이언트 상태를 나타내는 속성
+        console.log(ws.OPEN);
         sockets.forEach(elem => {
+            console.log(elem.readyState);
             elem.send(`${readmessage}`); 
             //소켓을 통해 클라이언트와 서버간의 데이터를 주고 받을 대는 일반적으로 문자열 또는 버퍼형태로 전달됨
             //서버가 모두 다른 환경이기 때문에 객체를 전달할 때는 객체를 일련의 바이트로 변환하는 직렬화과정이 필요하다, 이것이 곧 버퍼를 쓴 이유이다, 왜냐면 buffer는 이런 직렬화된 데이터를 읽기 쉬운 것이기 때문이다
