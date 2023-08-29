@@ -17,16 +17,15 @@ app.get('/', (req,res) => {
 });
 
 io.on('connection', (socket) => {
-    socket.on('open_message',(arg, cb) => { //이벤트를 받는 부분
+    socket.on('open_message',(arg, cb) => {
         console.log(arg);
         cb(arg);
     });
 
     socket.on('form_message', (arg) => {
         console.log(arg);
-        io.sockets.sockets.forEach
         socket.emit("backend_message", arg);
-    })
+    });
 });
 
 //서버
