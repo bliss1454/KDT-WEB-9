@@ -11,6 +11,7 @@
         <ul></ul>
         <input type="text" id="message" placeholder="채팅내용" /><br />
         <button>채팅</button>
+        <button type="button" onclick="leave()">나가기</button>
     </form>
     
     <script>
@@ -42,7 +43,11 @@
             const msg = chatFrom.querySelector('#message');
             socket.emit('message', msg.value);
             msg.value = '';
-        })
+        });
+        function leave() {
+            console.log('leave');
+            socket.emit('leave')
+        }
     </script>
 </body>
 </html>
