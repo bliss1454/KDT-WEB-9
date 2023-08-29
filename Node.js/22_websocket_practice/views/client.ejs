@@ -24,6 +24,7 @@
             const typeOne = document.querySelector('#typeOne');
             const typeTwo = document.querySelector('#typeTwo');
 
+            //버튼에 이벤트 추가해주기
             typeOne.addEventListener('click', () => {
                 socket.send(JSON.stringify({ vote: 'typeOne' }));
             });

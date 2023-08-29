@@ -1,6 +1,12 @@
+const http = require('http')
 const ws = require('ws');
 const express = require('express');
 const app = express();
+//http서버
+const server = http.createServer(app)
+//웹소켓 서버 접속
+const wss = new ws.Server({ server });
+
 const PORT = 8000;
 
 app.set('view engine', 'ejs');
@@ -9,14 +15,9 @@ app.get('/', (req,res) => {
     res.render('client');
 });
 
-const server = app.listen(PORT, () => {
-    console.log(`http://localhost:${PORT}`)
-});
-
 //node.js에서는 app.listen으로 포트를 열어주면 끝이 난다. 그러나 함수같은 것들은 그 밑에 작성해줘도 되는데, socket또한 밑에 써줘도 괜찮다.
 //그리고 소켓으로 열어줘야하니, server에 port를 담아주고, socket 서버에 해당 변수명을 표시해준다.
 //웹소켓 서버 접속
-const wss = new ws.Server({ server });
 
 //접속한 브라우저들을 담아주는 역할을 함(즉, 클라이언트들을 담을 배열변수이다.)
 //배열을 socket event에 담는 방법 : push
@@ -67,4 +68,8 @@ wss.on('connection', (socket) => {
     socket.on('close', () => {
         console.log('클라이언트와 연결이 종료되었습니다');
     });
+});
+
+server = app.listen(PORT, () => {
+    console.log(`http://localhost:${PORT}`)
 });
