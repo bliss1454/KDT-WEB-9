@@ -37,7 +37,7 @@ io.on('connection', (socket)=>{
         // 특정방의 전체사용자에게 메세지 전달
         // console.log(socket.room);
         socket.emit('chatMe', res);
-        socket.broadcast.to(socket.room).emit('chat', res);
+        socket.broadcast.to(socket.room).emit('chat', res); //해당 톡방에 있는 사람들 중에 나를 제외하고 보내는 것
     })
 
     socket.on('leave', ()=>{

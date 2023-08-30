@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="/socket.io/socket.io.js"></script>
-    <title>Chat</title>
+    <title>Document</title>
 </head>
 <body>
     <style>
@@ -72,7 +72,6 @@
         socket.on('create', (res)=>{
             const li = document.createElement('li');
             // const div = document.createElement('div');
-            
             li.textContent = res;
             ul.append(li);
         })
