@@ -37,9 +37,9 @@
   text-align: center;
 }
 
-.input {
+/* .input {
   margin: 8px;
-}
+} */
 
 .input1 {
   display: flex;
@@ -48,9 +48,9 @@
 }
 
 /* 실습4 */
-div {
+/* div {
   display: flex;
-}
+} */
 
 .red {
   background-color: red;
