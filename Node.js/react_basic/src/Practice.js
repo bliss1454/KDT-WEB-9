@@ -72,91 +72,128 @@ import { Component } from "react";
 
 //0920 실습3
 class Practice extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      datavalue: '', 
-      title: '',    
-      comments: []  
-    };
-  }
+    constructor(props) {
+        super(props);
 
-  handleChange = (e) => {
-    const { name, value } = e.target;
-    this.setState({
-      [name]: value,
-    });
-  };
+        //초기화
+        this.state = {
+            inputWriter: '', //작성자
+            inputTitle: '', //제목
+            comments: [], //입력한 내용
+            inputSearch: '', //검색내용
+            searchType: 'title', //검색타입
+            results: [], //검색결과
+        };
 
-  handleSubmit = (e) => {
-    e.preventDefault();
-    const { datavalue, title, comments } = this.state;
-    if (datavalue.trim() !== '' && title.trim() !== '') {
-      const newComment = { datavalue, title };
-      this.setState({
-        comments: [...comments, newComment], //spread연산자
-        datavalue: '', 
-        title: '', 
-      });
+        this.onChange = this.onChange.bind(this);
+        this.addComment = this.addComment.bind(this);
+        this.searchComment = this.searchComment.bind(this);
     }
-  };
 
-  render() {
-    const { datavalue, title, comments } = this.state;
+    onChange(event) {
+        this.setState({ inputWriter: event.target.value });
+    }
 
-    return (
-      <>
-        <form onSubmit={this.handleSubmit}>
-          <fieldset>
-            작성자: <input
-              type="text"
-              name="datavalue"
-              value={datavalue}
-              onChange={this.handleChange}
-              placeholder="작성자"
-            />
-            제목: <input
-              type="text"
-              name="title"
-              value={title}
-              onChange={this.handleChange}
-              placeholder="제목"
-            />
-            <button type="submit">작성</button>
-          </fieldset>
-        </form>
+    addComment() {
+        const newComment = {
+            writer: this.state.inputWriter,
+            title: this.state.inputTitle,
+        };
+        this.setState(() => ({ comments: [...this.state.comments, newComment], inputTitle: '', inputWriter: '' }));
+    }
 
-        <select> 
-            <option>작성자</option>
-            {comments.map((comment, index) => (
-                <option key={index}>{comment.datavalue}</option>
-            ))}
-        </select>
+    searchComment() {
+        const searchResult = this.state.comments.filter((value) => {
+            // console.log(value);
+            console.log(value[this.state.searchType]);
+            const type = value[this.state.searchType];
+            const include = type.includes(this.state.inputSearch);
+            if (!include) {
+                return false;
+            }
+            return true;
+        });
+        this.setState({ results: searchResult });
+    }
 
-        <input/>
-        <button>검색</button>
-
-        <table>
-          <thead>
-            <tr>
-              <th>번호</th>
-              <th>제목</th>
-              <th>작성자</th>
-            </tr>
-          </thead>
-          <tbody>
-            {comments.map((comment, index) => (
-              <tr key={index}>
-                <td>{index + 1}</td>
-                <td>{comment.title}</td>
-                <td>{comment.datavalue}</td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      </>
-    );
-  }
+    render() {
+        const { inputWriter, inputTitle, comments, searchType, inputSearch, results } = this.state;
+        return (
+            <>
+                <form>
+                    <label htmlFor="writer">작성자:</label>
+                    <input id="writer" type="text" value={inputWriter} onChange={(e) => this.onChange(e)} />
+                    <label htmlFor="title">제목:</label>
+                    <input
+                        id="title"
+                        type="text"
+                        value={inputTitle}
+                        onChange={(e) => this.setState({ inputTitle: e.target.value })}
+                    />
+                    <button type="button" onClick={this.addComment}>
+                        작성
+                    </button>
+                </form>
+                <form>
+                    {/* onChange: input, textarea, select 값이 변경될때마다 발생하는 이벤트 핸들러 */}
+                    <select value={searchType} onChange={(e) => this.setState({ searchType: e.target.value })}>
+                        <option value="writer">작성자</option>
+                        <option value="title">제목</option>
+                    </select>
+                    <input
+                        type="text"
+                        placeholder="검색어"
+                        value={inputSearch}
+                        onChange={(e) => this.setState({ inputSearch: e.target.value })}
+                    />
+                    <button type="button" onClick={this.searchComment}>
+                        검색
+                    </button>
+                </form>
+                <table border={1} cellSpacing={0}>
+                    <thead>
+                        <tr>
+                            <th>번호</th>
+                            <th>제목</th>
+                            <th>작성자</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {comments.map((value, index) => {
+                            return (
+                                <tr key={index}>
+                                    <td>{index + 1}</td>
+                                    <td>{value.title}</td>
+                                    <td>{value.writer}</td>
+                                </tr>
+                            );
+                        })}
+                    </tbody>
+                </table>
+                <h4>검색결과</h4>
+                <table border={1} cellSpacing={0}>
+                    <thead>
+                        <tr>
+                            <th>번호</th>
+                            <th>제목</th>
+                            <th>작성자</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {results.map((value, index) => {
+                            return (
+                                <tr key={index}>
+                                    <td>{index + 1}</td>
+                                    <td>{value.title}</td>
+                                    <td>{value.writer}</td>
+                                </tr>
+                            );
+                        })}
+                    </tbody>
+                </table>
+            </>
+        );
+    }
 }
 
 export default Practice;

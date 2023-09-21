@@ -10,7 +10,10 @@
 //import Counter from './Counter';
 // import Counter from './Counter';
 // import Practice from './Practice';
-import CounterFunc from './CounterFunc';
+// import CounterFunc from './CounterFunc';
+// import ToggleFunc from './ToggleFunc'
+// import Practice2 from './Practice2'
+import LifeCycleClass from './LifeCycleClass'
 
 // function App() {
 //   return (
@@ -28,16 +31,11 @@ import CounterFunc from './CounterFunc';
 //       {/* <Event />
 //       <EventClass /> */}
 //       <EventP message={"안녕하세요"} />
-//     </>
+        //  <Practice />
+        //  <ToggleFunc />
+        // <Practice2/>
+         <LifeCycleClass />
 //   );
 // };
 
-function App() {
-  return (
-    <>
-      <CounterFunc />
-    </>
-  );
-}
-
-export default App;
+export default LifeCycleClass;
