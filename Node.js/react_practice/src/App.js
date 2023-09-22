@@ -10,8 +10,15 @@ import UseStatePrac2 from "./07UseState/UseStatePrac2";
 import UseStatePrac3 from "./07UseState/UseStatePrac3";
 import UseStatePrac4 from "./07UseState/UseStatePrac4";
 import UseStatePrac5 from "./07UseState/UseStatePrac5";
+import LifePrac1 from "./08LifeCycle/LifePrac1";
+import LifePrac2 from "./08LifeCycle/LifePrac2";
+import { useState, useEffect } from "react";
 
 function App() {
+    const [status, setStatus] = useState (true); //문제의 3번 하는 것
+    const removeComponent = () => {  //문제의 3번 하는 것 (연결해제를 만들어줘야한다.)
+        setStatus(!status);
+    }
     return (
         <>
             {/* Prop 실습 */}
@@ -31,11 +38,14 @@ function App() {
             <StatePrac3 />
             <StatePrac4 /> */}
             {/* useState 실습 */}
-            <UseStatePrac1 />
+            {/* <UseStatePrac1 />
             <UseStatePrac2 />
             <UseStatePrac3 />
             <UseStatePrac4 />
-            <UseStatePrac5 />
+            <UseStatePrac5 /> */}
+            {/* <LifePrac1 /> */}
+            <button onClick={removeComponent}>연결해제</button>
+            {status && <LifePrac2 />}
         </>
     );
 }

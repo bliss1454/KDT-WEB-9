@@ -1,7 +1,9 @@
-import Book from "./Book";
+import Practice2 from "./08Lifecycle/Practice2";
 
 function App() {
-    return <></>;
+    return ( <>
+        
+    </> );
 }
 
 export default App;
