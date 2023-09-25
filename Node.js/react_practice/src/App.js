@@ -1,25 +1,26 @@
-import PropsPrac1 from "./04Props/PropsPrac1";
-import PropsPrac2 from "./04Props/PropsPrac2";
-import Message from "./05Event/Message";
-import StatePrac1 from "./06State/StatePrac1";
-import StatePrac2 from "./06State/StatePrac2";
-import StatePrac3 from "./06State/StatePrac3";
-import StatePrac4 from "./06State/StatePrac4";
-import UseStatePrac1 from "./07UseState/UseStatePrac1";
-import UseStatePrac2 from "./07UseState/UseStatePrac2";
-import UseStatePrac3 from "./07UseState/UseStatePrac3";
-import UseStatePrac4 from "./07UseState/UseStatePrac4";
-import UseStatePrac5 from "./07UseState/UseStatePrac5";
-import LifePrac1 from "./08LifeCycle/LifePrac1";
-import LifePrac2 from "./08LifeCycle/LifePrac2";
-import { useState, useEffect } from "react";
-import RefPrac2 from "./09Ref/RefPrac2";
+// import PropsPrac1 from "./04Props/PropsPrac1";
+// import PropsPrac2 from "./04Props/PropsPrac2";
+// import Message from "./05Event/Message";
+// import StatePrac1 from "./06State/StatePrac1";
+// import StatePrac2 from "./06State/StatePrac2";
+// import StatePrac3 from "./06State/StatePrac3";
+// import StatePrac4 from "./06State/StatePrac4";
+// import UseStatePrac1 from "./07UseState/UseStatePrac1";
+// import UseStatePrac2 from "./07UseState/UseStatePrac2";
+// import UseStatePrac3 from "./07UseState/UseStatePrac3";
+// import UseStatePrac4 from "./07UseState/UseStatePrac4";
+// import UseStatePrac5 from "./07UseState/UseStatePrac5";
+// import LifePrac1 from "./08LifeCycle/LifePrac1";
+// import LifePrac2 from "./08LifeCycle/LifePrac2";
+// import { useState, useEffect } from "react";
+// import RefPrac2 from "./09Ref/RefPrac2";
+import SignupForm from './10Hook/UseReducerPrac'
 
 function App() {
-    const [status, setStatus] = useState (true); //문제의 3번 하는 것
-    const removeComponent = () => {  //문제의 3번 하는 것 (연결해제를 만들어줘야한다.)
-        setStatus(!status);
-    }
+    // const [status, setStatus] = useState (true); //문제의 3번 하는 것
+    // const removeComponent = () => {  //문제의 3번 하는 것 (연결해제를 만들어줘야한다.)
+    //     setStatus(!status);
+    // }
     return (
         <>
             {/* Prop 실습 */}
@@ -47,7 +48,8 @@ function App() {
             {/* <LifePrac1 /> */}
             {/* <button onClick={removeComponent}>연결해제</button>
             {status && <LifePrac2 />} */}
-            <RefPrac2 />
+            {/* <RefPrac2 /> */}
+            <SignupForm />
         </>
     );
 }
