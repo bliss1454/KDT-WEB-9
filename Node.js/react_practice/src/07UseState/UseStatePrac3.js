@@ -7,6 +7,7 @@ export default function UseStatePrac3() {
 
     const onChange = (e) => {
         setInputWriter(e.target.value);
+
     };
 
     const addComment = () => {
@@ -24,7 +25,7 @@ export default function UseStatePrac3() {
             <form>
                 <label htmlFor="writer">작성자:</label>
                 {/* onChange: input, textarea, select 값이 변경될때마다 발생하는 이벤트 핸들러 */}
-                <input type="text" id="writer" value={inputWriter} onChange={(e) => onChange(e)} />
+                <input type="text" id="writer" value={inputWriter} onChange={(e) => onChange(e) } />
                 <label htmlFor="title">제목:</label>
                 <input type="text" id="title" value={inputTitle} onChange={(e) => setInputTitle(e.target.value)} />
                 <button type="button" onClick={addComment}>

@@ -1,4 +1,4 @@
-import { Component } from "react";
+import React,{ Component } from "react";
 
 class StatePrac3 extends Component {
     constructor(props) {
@@ -15,15 +15,24 @@ class StatePrac3 extends Component {
         this.addComment = this.addComment.bind(this);
     }
 
+    myInput = () => {
+        React.createRef();
+    };
+
     onChange(e) {
         //console.log(e.target);
         this.setState({ inputWriter: e.target.value });
     }
 
     addComment() {
+        const { inputWriter, inputTitle } = this.state;
+        //그럼 ref는 어디서 사용?
+        if (inputWriter.trim() === "" || inputTitle.trim() === "") {
+            return;
+        }
         const newComment = {
-            writer: this.state.inputWriter,
-            title: this.state.inputTitle,
+            writer: inputWriter,
+            title: inputTitle,
         };
         this.setState({
             comments: [...this.state.comments, newComment],
@@ -31,7 +40,7 @@ class StatePrac3 extends Component {
             inputWriter: "",
         });
     }
-
+    
     render() {
         const { inputWriter, inputTitle, comments } = this.state;
         return (
@@ -43,6 +52,7 @@ class StatePrac3 extends Component {
                         type="text"
                         id="writer"
                         value={inputWriter}
+                        ref = {this.myInput}
                         onChange={(e) => this.onChange(e)}
                     />
                     <label htmlFor="title">제목:</label>
@@ -50,6 +60,7 @@ class StatePrac3 extends Component {
                         type="text"
                         id="title"
                         value={inputTitle}
+                        ref = {this.myInput}
                         onChange={(e) =>
                             this.setState({ inputTitle: e.target.value })
                         }

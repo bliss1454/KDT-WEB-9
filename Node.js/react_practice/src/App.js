@@ -13,6 +13,7 @@ import UseStatePrac5 from "./07UseState/UseStatePrac5";
 import LifePrac1 from "./08LifeCycle/LifePrac1";
 import LifePrac2 from "./08LifeCycle/LifePrac2";
 import { useState, useEffect } from "react";
+import RefPrac2 from "./09Ref/RefPrac2";
 
 function App() {
     const [status, setStatus] = useState (true); //문제의 3번 하는 것
@@ -34,9 +35,9 @@ function App() {
             {/* <Message message={"Hello React"} /> */}
             {/* state 실습 */}
             {/* <StatePrac1 />
-            <StatePrac2 />
-            <StatePrac3 />
-            <StatePrac4 /> */}
+            <StatePrac2 /> */}
+            {/* <StatePrac3 /> */}
+            {/* <StatePrac4 /> */}
             {/* useState 실습 */}
             {/* <UseStatePrac1 />
             <UseStatePrac2 />
@@ -44,8 +45,9 @@ function App() {
             <UseStatePrac4 />
             <UseStatePrac5 /> */}
             {/* <LifePrac1 /> */}
-            <button onClick={removeComponent}>연결해제</button>
-            {status && <LifePrac2 />}
+            {/* <button onClick={removeComponent}>연결해제</button>
+            {status && <LifePrac2 />} */}
+            <RefPrac2 />
         </>
     );
 }
