@@ -14,7 +14,11 @@
 // import LifePrac2 from "./08LifeCycle/LifePrac2";
 // import { useState, useEffect } from "react";
 // import RefPrac2 from "./09Ref/RefPrac2";
-import SignupForm from './10Hook/UseReducerPrac'
+// import SignupForm from './10Hook/UseReducerPrac'
+// import Practice1 from "./11Style/Practice1";
+// import Practice2 from "./11Style/Practice2";
+// import StyledPrac1 from "./11Style/StyledPrac1";
+import StyledPrac2 from "./11Style/StyledPrac2";
 
 function App() {
     // const [status, setStatus] = useState (true); //문제의 3번 하는 것
@@ -23,33 +27,37 @@ function App() {
     // }
     return (
         <>
-            {/* Prop 실습 */}
-            {/* <PropsPrac1 food="치킨" />
+            {/* Prop 실습
+            <PropsPrac1 food="치킨" />
             <PropsPrac1 />
             <PropsPrac2
                 title={"나의하루는 4시40분에 시작된다"}
                 author={"김유진"}
                 price={"13,600원"}
                 type={"자기개발서"}
-            /> */}
-            {/* 이벤트 핸들링 실습 */}
-            {/* <Message message={"Hello React"} /> */}
-            {/* state 실습 */}
-            {/* <StatePrac1 />
-            <StatePrac2 /> */}
-            {/* <StatePrac3 /> */}
-            {/* <StatePrac4 /> */}
-            {/* useState 실습 */}
-            {/* <UseStatePrac1 />
+            />
+            이벤트 핸들링 실습
+            <Message message={"Hello React"} />
+            state 실습
+            <StatePrac1 />
+            <StatePrac2 /> 
+            <StatePrac3 />
+            <StatePrac4 />
+            useState 실습
+            <UseStatePrac1 />
             <UseStatePrac2 />
             <UseStatePrac3 />
             <UseStatePrac4 />
-            <UseStatePrac5 /> */}
-            {/* <LifePrac1 /> */}
-            {/* <button onClick={removeComponent}>연결해제</button>
-            {status && <LifePrac2 />} */}
-            {/* <RefPrac2 /> */}
-            <SignupForm />
+            <UseStatePrac5 />
+            <LifePrac1 />
+            <button onClick={removeComponent}>연결해제</button>
+            {status && <LifePrac2 />}
+            <RefPrac2 />
+            <SignupForm /> */}
+            {/* <Practice1 /> */}
+            {/* <Practice2 /> */}
+            {/* <StyledPrac1 /> */}
+            <StyledPrac2 />
         </>
     );
 }

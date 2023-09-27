@@ -6,6 +6,9 @@ import RefSampleFunc2 from "./09Ref/RefSampleFunc2";
 import UseCallback from "./10Hook/UseCallback";
 import UseMemo from "./10Hook/UseMemo";
 import Counter from "./10Hook/UseReducer";
+import SassComponent from "./11Style/SassComponent";
+import Style from "./11Style/Style";
+import StyledComponent from './11Style/StyledComponent'
 
 function App() {
     return ( 
@@ -16,7 +19,10 @@ function App() {
         <RefSampleFunc2 /> */}
         {/* <UseMemo /> */}
         {/* <UseCallback /> */}
-        <Counter />
+        {/* <Counter /> */}
+        {/* <Style /> */}
+        {/* <SassComponent /> */}
+        <StyledComponent />
     </> );
 }
 

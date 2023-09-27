@@ -1,0 +1,37 @@
+// @mixin box($size) {
+//     width: $size;
+//     height: $size;
+//     border-radius: 50%;
+// }
+
+@mixin circle($color) {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    background-color: $color;
+}
+
+@mixin rotate-circle($name , $size) {
+    @keyframes #{$name} {
+        0% {
+            top: 0px;
+            left: 0px;
+        }
+        25% {
+            top: 0px;
+            left: $size;
+        }
+        50% {
+            top: $size;
+            left: $size;
+        }
+        75% {
+            top: $size;
+            left: 0px;
+        }
+        100% {
+            top: 0px;
+            left: 0px;
+        }
+    }
+}

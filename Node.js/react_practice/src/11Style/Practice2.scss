@@ -1,0 +1,23 @@
+@import './utils.scss';
+
+.circle {
+    position: relative;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+
+    &.beige {
+        @include circle(beige);
+        @include rotate-circle(beigeAni, 100px);
+        animation-name: beigeAni;
+    }
+    &.gray {
+        @include circle(gray);
+        @include rotate-circle(grayAni, 200px);
+        animation-name: grayAni;
+    }
+    &.brown {
+        @include circle(brown);
+        @include rotate-circle(brownAni, 300px);
+        animation-name: brownAni;
+    }
+}
