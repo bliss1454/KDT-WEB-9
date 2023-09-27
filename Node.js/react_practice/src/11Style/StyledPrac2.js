@@ -4,15 +4,41 @@ import React, { useState, useEffect } from "react";
 const _Input = styled.input`
     width: 200px;
     height: 20px;
+    margin-right: 10px;
+    padding: 10px;
 `;
 
 const _Btn = styled.button`
     background-color: skyblue;
     color: black;
-    border: 0;
+    border: none;
     margin-left: 5px;
-    width: 40px;
-    height: 20px;
+    width: 80px;
+    height: 30px;
+    padding: 10px 15px;
+    border-radius: 4px;
+    font-weight: 700;
+    &:hover {
+        opacity: 0.8;
+    }
+`;
+
+const _Container = styled.div`
+    display: flex;
+    flex-direction: row;
+    /* align-items: center; */
+`;
+
+const _List = styled.ul`
+    width: 300px;
+    height: 200px;
+    overflow-y: scroll;
+    padding: 0;
+`;
+
+const _ListItem = styled.li`
+    padding: 5px;
+    border-bottom: 1px solid yellow;
 `;
 
 export default function StyledPrac2() {
@@ -67,19 +93,19 @@ export default function StyledPrac2() {
     }, []);
 
     return (
-        <div>
+        <_Container>
             <_Input
                 type="text"
                 value={input}
                 onChange={handleInputChange}
             />
             <_Btn onClick={handleAddItem}>Add</_Btn>
-            <span>
+            <_List>
                 {items.map((item, index) => (
-                    <p key={index}>{item}</p>
+                    <_ListItem key={index}>{item}</_ListItem>
                 ))}
-            </span>
+            </_List>
             {isLoading && <p>Loading...</p>}
-        </div>
+        </_Container>
     )
 }
