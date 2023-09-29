@@ -18,7 +18,8 @@
 // import Practice1 from "./11Style/Practice1";
 // import Practice2 from "./11Style/Practice2";
 // import StyledPrac1 from "./11Style/StyledPrac1";
-import StyledPrac2 from "./11Style/StyledPrac2";
+// import StyledPrac2 from "./11Style/StyledPrac2";
+import RouterPrac1 from "./12Router/Router";
 
 function App() {
     // const [status, setStatus] = useState (true); //문제의 3번 하는 것
@@ -57,7 +58,8 @@ function App() {
             {/* <Practice1 /> */}
             {/* <Practice2 /> */}
             {/* <StyledPrac1 /> */}
-            <StyledPrac2 />
+            {/* <StyledPrac2 /> */}
+            <RouterPrac1 />
         </>
     );
 }
