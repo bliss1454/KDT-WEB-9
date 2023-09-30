@@ -2,6 +2,7 @@ const express = require("express");
 const router = express.Router();
 const controller = require("../controller/Cmain");
 
+router.get('/', controller.main);
 router.get("/todos", controller.get_todo);
 router.post("/todo", controller.post_todo);
 router.patch("/todo/:todoId", controller.patch_todo);
