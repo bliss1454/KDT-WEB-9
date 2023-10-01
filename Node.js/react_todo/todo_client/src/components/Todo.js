@@ -1,4 +1,4 @@
-import '../styles/Todo.scss';
+// import '../styles/Todo.scss';
 import React from 'react';
 import { useState } from 'react';
 
@@ -71,9 +71,9 @@ const Todo = ({ item, deleteItem, updateItem }) => {
         style={{ textDecoration: todoItem.done ? 'line-through' : 'none', textDecorationColor: todoItem.done ? 'red' : 'black'}}
       />
 
-      <AiOutlineCloseSquare
+      <button
         onClick={onDeleteButtonClick}
-      ></AiOutlineCloseSquare>
+      ></button>
     </div>
   );
 };

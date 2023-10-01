@@ -1,6 +1,5 @@
 import { useState } from 'react';
-import '../styles/AddTodo.scss';
-import { AiFillPlusSquare } from 'react-icons/ai';
+// import '../styles/AddTodo.scss';
 
 const AddTodo = ({ addItem }) => {
   //자식은 부모에게 접근못해, react는 단방향이기에, 상위에서 자식으로 옮기자!
@@ -46,7 +45,7 @@ const AddTodo = ({ addItem }) => {
           setTodoItem({ title: e.target.value });
         }}
       />
-      <AiFillPlusSquare onClick={OnButtonClick}></AiFillPlusSquare>
+      <button onClick={OnButtonClick}></button>
     </div>
   );
 };
