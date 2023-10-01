@@ -25,10 +25,6 @@ app.get('/', (req, res) => {
     res.send('todos');
 });
 
-// app.listen(PORT, () => {
-//     console.log(`http://localhost:${PORT}`);
-// });
-
 sequelize.sync()
   .then(() => {
     app.listen(PORT, () => {

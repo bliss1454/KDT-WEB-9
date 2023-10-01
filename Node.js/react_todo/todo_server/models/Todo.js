@@ -1,6 +1,6 @@
 const { Sequelize, DataTypes } = require('sequelize');
 const sequelize = new Sequelize('database_name', 'username', 'password', {
-  host: 'localhost',
+  host: 'todo_user',
   dialect: 'mysql',
 });
 
