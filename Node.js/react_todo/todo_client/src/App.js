@@ -5,10 +5,10 @@ import Todo from './components/Todo';
 // import './styles/App.scss';
 // console.log(process.env.REACT_APP_DB_HOST);
 
-const express = require('express');
-const app = express();
-const cors = require("cors");
-app.use(cors()); 
+// const express = require('express');
+// const app = express();
+// const cors = require("cors");
+// app.use(cors()); 
 
 function App() {
   // todo마다 내용이 달라야함. 임시 상태 관리
