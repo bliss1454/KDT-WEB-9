@@ -1,7 +1,7 @@
-const express = require('express');
-const cors = require("cors");
-const app = express();
-const PORT = 8080;
+// const express = require('express');
+// const cors = require("cors");
+// const app = express();
+// const PORT = 8080;
 const sequelize = require('./models').sequelize;
 
 app.use(express.urlencoded({ extended: true }));
@@ -11,6 +11,23 @@ app.set("view engine", "ejs");
 
 //CORS오류방지
 app.use(cors());
+
+
+const express = require('express');
+const cors = require('cors');
+
+const app = express();
+const PORT = 8080;
+
+// CORS 설정
+const corsOptions = {
+  origin: 'http://localhost:3000', // 클라이언트 주소
+  methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+  credentials: true, // 인증 정보 (예: 쿠키)를 허용할 경우 true
+};
+
+app.use(cors(corsOptions));
+
 
 //router 분리
 const router = require("./routes");
