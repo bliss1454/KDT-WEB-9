@@ -1,6 +1,6 @@
 import AddTodo from './components/AddTodo';
 import Todo from './components/Todo';
-import './styles/App.scss';
+import './styles/App.scss'
 import { useState, useEffect } from 'react';
 // import axios from 'axios';
 const axios = require('axios');

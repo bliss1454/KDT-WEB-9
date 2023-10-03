@@ -26,7 +26,7 @@ const AddTodo = ({ addItem }) => {
     <div className="AddTodo">
       <input
         type="text"
-        placeholder="그냥 해 임마"
+        placeholder="할일을 적어주세요"
         onChange={(e) => {
           setTodoItem({ title: e.target.value });
         }}
