@@ -21,13 +21,18 @@
 // import StyledPrac2 from "./11Style/StyledPrac2";
 // import React from 'react';
 // import RouterPrac1 from "./12Router/Router";
-import Form from './13Form/Form';
+// import Form from './13Form/Form';
+import LanguageSelector from "./14Context/LangSelector";
+import ThemeSelector from "./14Context/ThemeSelector";
+import { SettingProvider } from "./14Context/store/setting-context";
+import './App.css'
 
 function App() {
     // const [status, setStatus] = useState (true); //문제의 3번 하는 것
     // const removeComponent = () => {  //문제의 3번 하는 것 (연결해제를 만들어줘야한다.)
     //     setStatus(!status);
     // }
+
     return (
         <>
             {/* Prop 실습
@@ -62,6 +67,10 @@ function App() {
             {/* <StyledPrac1 /> */}
             {/* <StyledPrac2 /> */}
             {/* <RouterPrac1 /> */}
+            <SettingProvider>
+                <ThemeSelector/>
+                <LanguageSelector />
+            </SettingProvider>
         </>
     );
 }

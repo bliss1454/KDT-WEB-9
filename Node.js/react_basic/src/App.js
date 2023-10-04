@@ -13,7 +13,7 @@ import StyledComponent from './11Style/StyledComponent'
 // import Router from "./12Router/Router";
 import Header from "./12Router/Header";
 import Form from "./13Form/Form";
-import MyContext from '../../react_basic/src/14Context/lang-context';
+import MyContext, { LanguageProvider } from '../../react_basic/src/14Context/lang-context';
 import { useState } from 'react';
 import LangugeSelector from "./14Context/LangSelector";
 
@@ -35,7 +35,12 @@ function App() {
         {/* <Header />
         <Outlet /> */}
         {/* <Form /> */}
-        <MyContext.Provider value={{languge, setLanguge}}>
+
+        <LanguageProvider>
+            <LangugeSelector />
+        </LanguageProvider>
+
+        {/* <MyContext.Provider value={{languge, setLanguge}}> */}
                 {/* <MyContext.Consumer>
                     {(value) => {
                         return (
@@ -50,8 +55,8 @@ function App() {
                         )
                     }}
                 </MyContext.Consumer> */}
-                <LangugeSelector />
-         </MyContext.Provider>
+                {/* <LangugeSelector />
+        </MyContext.Provider> */}
     </> );
 }
 
