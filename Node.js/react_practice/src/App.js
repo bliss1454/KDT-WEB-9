@@ -19,8 +19,8 @@
 // import Practice2 from "./11Style/Practice2";
 // import StyledPrac1 from "./11Style/StyledPrac1";
 // import StyledPrac2 from "./11Style/StyledPrac2";
-import React from 'react';
-import RouterPrac1 from "./12Router/Router";
+// import React from 'react';
+// import RouterPrac1 from "./12Router/Router";
 import Form from './13Form/Form';
 
 function App() {
@@ -62,7 +62,6 @@ function App() {
             {/* <StyledPrac1 /> */}
             {/* <StyledPrac2 /> */}
             {/* <RouterPrac1 /> */}
-            <Form />
         </>
     );
 }

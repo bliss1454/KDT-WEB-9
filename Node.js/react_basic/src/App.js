@@ -13,8 +13,12 @@ import StyledComponent from './11Style/StyledComponent'
 // import Router from "./12Router/Router";
 import Header from "./12Router/Header";
 import Form from "./13Form/Form";
+import MyContext from '../../react_basic/src/14Context/lang-context';
+import { useState } from 'react';
+import LangugeSelector from "./14Context/LangSelector";
 
 function App() {
+    const [languge, setLanguge] = useState()
     return ( 
     <>
         {/* <RefSampleClass1 />
@@ -30,7 +34,24 @@ function App() {
         {/* <Router /> */}
         {/* <Header />
         <Outlet /> */}
-        <Form />
+        {/* <Form /> */}
+        <MyContext.Provider value={{languge, setLanguge}}>
+                {/* <MyContext.Consumer>
+                    {(value) => {
+                        return (
+                        <div>
+                            <h2>현재 선택된 언어: {value.languge}</h2>
+                            <select value={value.languge} onChange={(e) => value.setLanguge(e.target.value)}>
+                                <option value="ko">한국어</option>
+                                <option value="en">영어</option>
+                                <option value="jp">일본어</option>
+                            </select>
+                        </div>
+                        )
+                    }}
+                </MyContext.Consumer> */}
+                <LangugeSelector />
+         </MyContext.Provider>
     </> );
 }
 
