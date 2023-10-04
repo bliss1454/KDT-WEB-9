@@ -12,6 +12,7 @@ import Style from "./11Style/Style";
 import StyledComponent from './11Style/StyledComponent'
 // import Router from "./12Router/Router";
 import Header from "./12Router/Header";
+import Form from "./13Form/Form";
 
 function App() {
     return ( 
@@ -27,8 +28,9 @@ function App() {
         {/* <SassComponent /> */}
         {/* <StyledComponent /> */}
         {/* <Router /> */}
-        <Header />
-        <Outlet />
+        {/* <Header />
+        <Outlet /> */}
+        <Form />
     </> );
 }
 
