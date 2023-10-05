@@ -22,10 +22,13 @@
 // import React from 'react';
 // import RouterPrac1 from "./12Router/Router";
 // import Form from './13Form/Form';
-import LanguageSelector from "./14Context/LangSelector";
-import ThemeSelector from "./14Context/ThemeSelector";
-import { SettingProvider } from "./14Context/store/setting-context";
-import './App.css'
+// import LanguageSelector from "./14Context/LangSelector";
+// import ThemeSelector from "./14Context/ThemeSelector";
+// import { SettingProvider } from "./14Context/store/setting-context";
+// import './App.css'
+import Cart from "./14Context/Cart";
+import ProductList from "./14Context/ProductList";
+import { CartProvider } from "./14Context/store/cart-context";
 
 function App() {
     // const [status, setStatus] = useState (true); //문제의 3번 하는 것
@@ -67,10 +70,14 @@ function App() {
             {/* <StyledPrac1 /> */}
             {/* <StyledPrac2 /> */}
             {/* <RouterPrac1 /> */}
-            <SettingProvider>
+            {/* <SettingProvider>
                 <ThemeSelector/>
                 <LanguageSelector />
-            </SettingProvider>
+            </SettingProvider> */}
+            <CartProvider>
+                <ProductList />
+                <Cart />
+            </CartProvider>
         </>
     );
 }
