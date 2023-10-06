@@ -1,3 +1,19 @@
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import App from './App';
+import { Provider } from 'react-redux';
+import store from './store/cart';
+
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(
+  <React.StrictMode>
+    <Provider store={store}>
+      <App />
+    </Provider>
+  </React.StrictMode> 
+)
+
+/*
 import { createStore } from 'redux';
 
 const write = document.querySelector("#write");
@@ -48,6 +64,7 @@ add.addEventListener("click", () => {
   todoStore.dispatch({ type: "ADD" });
   write.value = "";
 });
+*/
 
 ////리더스를 이용한 숫자증가, 감소 코드
 // const add = document.querySelector("#add");
