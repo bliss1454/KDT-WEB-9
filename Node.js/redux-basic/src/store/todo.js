@@ -1,10 +1,11 @@
-import {createStore} from 'redux';
+import { createStore } from 'redux';
 
+//상수의 변수
 export const ADD_TODO = 'ADD_TODO';
 export const DELETE_TODO = 'DELETE_TODO';
 
 //reducer
-export const reducer = (state = [], action) => {
+const reducer = (state = [], action) => {
     console.log(action);
     switch (action.type) {
         case ADD_TODO:
