@@ -12,10 +12,19 @@ interface Data {
 const Types:React.FC<Props> = (props) => {
     const [count, setCount] = useState<Data | null>();
     const myInput = useRef<HTMLInputElement>(null);
+    
+    const onClick = (e: React.MouseEvent<HTMLElement>) => {};
+
+    const handleFocus = () => {
+        myInput.current!.focus();
+    };
+
     return (
         <>
             <h2>안녕하세요 {props.name}</h2>
             <input ref={myInput} />
+            <button onClick={handleFocus}>포커스버튼</button>
+            <button onClick={(e) => onClick(e)}>버튼</button>
         </>
     );
 }
