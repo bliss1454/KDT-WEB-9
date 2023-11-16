@@ -1,0 +1,7 @@
+# docker run -e MYSQL_ROOT_PASSWORD mysql
+FROM mysql
+
+ENV MYSQL_ROOT_PASSWORD=1234
+
+EXPOSE 3306
+# 이미지의 포트를 명시
